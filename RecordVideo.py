@@ -93,11 +93,20 @@ class RecordVideo():
             line += self.process.stdout.readline()
             now = datetime.now()
             if (now - start_time).total_seconds() >2:
-                self.logger.info(line)
+                # self.logger.info('recording...')
+                if self.process:
+                    log_text = 'ffmpeg 运行状态:%s' % ('终止' if (self.process.poll() is not None) else '运行中')
+                    print(log_text)
+                    self.logger.info(log_text) 
+                    
+                else:
+                    print('ffmpeg子进程已终止.')
+                # self.logger.info(line)
+                print(line)
                 line = ''
                 start_time = now
                 
-            print(line)
+            # print(line)
             
             if not self.recording:
                 self.process.stdin.write('q')

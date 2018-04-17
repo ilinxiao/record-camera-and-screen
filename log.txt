@@ -1,0 +1,721 @@
+2018-04-16 16:56:29,278 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 16:56:29,278 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 16:56:29,278 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 16:56:29,278 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 16:56:29,278 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 16:56:29,278 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 16:56:29,279 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 16:56:29,279 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 16:56:33,752 - RecordVideo - INFO - 录制中...
+2018-04-16 16:56:50,504 - RecordVideo - INFO - 录制将停止...
+2018-04-16 16:56:50,891 - RecordVideo - WARNING - kill exception:
+ 
+2018-04-16 17:41:10,170 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 17:41:10,170 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 17:41:10,170 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 17:41:10,170 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 17:41:10,170 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 17:41:10,170 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 17:41:10,170 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 17:41:10,170 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 17:41:19,365 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_174119.mkv
+2018-04-16 17:41:19,365 - RecordVideo - INFO - 录制中...
+2018-04-16 17:42:08,443 - RecordVideo - WARNING - kill exception:
+ name 'sefl' is not defined
+2018-04-16 17:42:14,331 - RecordVideo - WARNING - kill exception:
+ name 'sefl' is not defined
+2018-04-16 17:42:50,115 - RecordVideo - WARNING - kill exception:
+ name 'sefl' is not defined
+2018-04-16 17:43:12,560 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 17:43:12,560 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 17:43:12,560 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 17:43:12,560 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 17:43:12,560 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 17:43:12,560 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 17:43:12,560 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 17:43:12,560 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 17:43:16,997 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_174316.mkv
+2018-04-16 17:43:16,998 - RecordVideo - INFO - 录制中...
+2018-04-16 17:44:05,866 - RecordVideo - INFO - ffmpeg pid: 3644
+2018-04-16 17:44:05,867 - RecordVideo - INFO - 录制将停止...
+2018-04-16 17:44:05,867 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 17:44:06,251 - RecordVideo - WARNING - kill exception:
+ 
+2018-04-16 17:59:39,013 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 17:59:39,013 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 17:59:39,013 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 17:59:39,013 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 17:59:39,013 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 17:59:39,013 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 17:59:39,013 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 17:59:39,013 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 17:59:40,982 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_175940.mkv
+2018-04-16 17:59:40,983 - RecordVideo - INFO - 录制中...
+2018-04-16 17:59:44,246 - RecordVideo - INFO - ffmpeg pid: 10572
+2018-04-16 17:59:44,246 - RecordVideo - INFO - 录制将停止...
+2018-04-16 17:59:44,247 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 17:59:44,717 - RecordVideo - WARNING - kill exception:
+ 
+2018-04-16 19:13:40,874 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:13:40,924 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:13:40,924 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:13:40,924 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:13:40,924 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:13:40,924 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:13:40,925 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:13:40,925 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:13:42,857 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_191342.mkv
+2018-04-16 19:13:42,858 - RecordVideo - INFO - 录制中...
+2018-04-16 19:13:51,410 - RecordVideo - INFO - ffmpeg pid: 9636
+2018-04-16 19:13:51,411 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:13:51,412 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 19:39:21,128 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:39:21,128 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:39:21,128 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:39:21,128 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:39:21,128 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:39:21,128 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:39:21,128 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:39:21,128 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:39:27,017 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_193927.mkv
+2018-04-16 19:39:27,019 - RecordVideo - INFO - 录制中...
+2018-04-16 19:39:35,507 - RecordVideo - INFO - ffmpeg pid: 12112
+2018-04-16 19:39:35,508 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:39:35,508 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 19:40:18,152 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:40:18,152 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:40:18,152 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:40:18,152 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:40:18,152 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:40:18,152 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:40:18,152 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:40:18,152 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:40:20,221 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_194020.mkv
+2018-04-16 19:40:20,221 - RecordVideo - INFO - 录制中...
+2018-04-16 19:40:24,645 - RecordVideo - INFO - ffmpeg pid: 6904
+2018-04-16 19:40:24,645 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:40:24,645 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 19:44:21,957 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:44:21,957 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:44:21,958 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:44:21,958 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:44:21,958 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:44:21,958 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:44:21,958 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:44:21,958 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:44:24,826 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_194424.mkv
+2018-04-16 19:44:24,827 - RecordVideo - INFO - 录制中...
+2018-04-16 19:45:15,612 - RecordVideo - INFO - ffmpeg pid: 3680
+2018-04-16 19:45:15,612 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:45:15,613 - RecordVideo - INFO - ffmpeg进程状态: True
+2018-04-16 19:45:30,913 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:45:30,913 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:45:30,913 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:45:30,913 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:45:30,913 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:45:30,913 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:45:30,913 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:45:30,913 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:45:33,897 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_194533.mkv
+2018-04-16 19:45:33,898 - RecordVideo - INFO - 录制中...
+2018-04-16 19:45:41,278 - RecordVideo - INFO - ffmpeg pid: 3056
+2018-04-16 19:45:41,279 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:45:41,279 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 19:46:01,565 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:46:01,565 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:46:01,566 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:46:01,566 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:46:01,566 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:46:01,566 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:46:01,566 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:46:01,566 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:46:03,785 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_194603.mkv
+2018-04-16 19:46:03,786 - RecordVideo - INFO - 录制中...
+2018-04-16 19:46:11,136 - RecordVideo - INFO - ffmpeg pid: 532
+2018-04-16 19:46:11,136 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:46:11,136 - RecordVideo - INFO - ffmpeg进程状态: True
+2018-04-16 19:47:06,335 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:47:06,336 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:47:06,336 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:47:06,336 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:47:06,336 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:47:06,336 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:47:06,336 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:47:06,336 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:48:42,995 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:48:42,995 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:48:42,995 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:48:42,996 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:48:42,996 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:48:42,996 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:48:42,996 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:48:42,996 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:48:45,629 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_194845.mkv
+2018-04-16 19:48:45,630 - RecordVideo - INFO - 录制中...
+2018-04-16 19:48:48,956 - RecordVideo - INFO - ffmpeg pid: 6996
+2018-04-16 19:48:48,957 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:48:48,957 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 19:49:00,365 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_194900.mkv
+2018-04-16 19:49:00,366 - RecordVideo - INFO - 录制中...
+2018-04-16 19:49:03,774 - RecordVideo - INFO - ffmpeg pid: 4552
+2018-04-16 19:49:03,774 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:49:03,774 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 19:54:23,765 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 19:54:23,765 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 19:54:23,765 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 19:54:23,765 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 19:54:23,765 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 19:54:23,765 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 19:54:23,765 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 19:54:23,765 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 19:54:29,639 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_195429.mkv
+2018-04-16 19:54:29,640 - RecordVideo - INFO - 录制中...
+2018-04-16 19:54:37,972 - RecordVideo - INFO - ffmpeg pid: 7920
+2018-04-16 19:54:37,972 - RecordVideo - INFO - 录制将停止...
+2018-04-16 19:54:37,972 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 21:55:41,445 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 21:55:41,450 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 21:55:41,450 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 21:55:41,450 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 21:55:41,450 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 21:55:41,450 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 21:55:41,450 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 21:55:41,450 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 21:56:15,437 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 21:56:15,437 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 21:56:15,437 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 21:56:15,437 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 21:56:15,438 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 21:56:15,438 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 21:56:15,438 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 21:56:15,438 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:30:48,887 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:30:48,887 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:30:48,887 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:30:48,887 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:30:48,887 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:30:48,887 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:30:48,888 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:30:48,888 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:31:06,727 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:31:06,727 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:31:06,727 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:31:06,728 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:31:06,728 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:31:06,728 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:31:06,728 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:31:06,728 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:31:17,728 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:31:17,728 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:31:17,728 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:31:17,728 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:31:17,728 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:31:17,728 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:31:17,729 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:31:17,729 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:31:58,421 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:31:58,422 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:31:58,422 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:31:58,422 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:31:58,422 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:31:58,422 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:31:58,422 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:31:58,422 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:33:21,348 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:33:21,348 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:33:21,348 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:33:21,348 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:33:21,348 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:33:21,348 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:33:21,348 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:33:21,348 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:33:22,865 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_223322.mkv
+2018-04-16 22:33:22,866 - RecordVideo - INFO - 录制中...
+2018-04-16 22:33:27,376 - RecordVideo - INFO - ffmpeg pid: 13388
+2018-04-16 22:33:27,376 - RecordVideo - INFO - 录制将停止...
+2018-04-16 22:33:27,376 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 22:33:36,680 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}":audio="@device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7.0 -y C:\Users\lv\ctest\record\video\屏幕_20180416_223336.mkv
+2018-04-16 22:33:36,681 - RecordVideo - INFO - 录制中...
+2018-04-16 22:33:41,088 - RecordVideo - INFO - ffmpeg pid: 13532
+2018-04-16 22:33:41,088 - RecordVideo - INFO - 录制将停止...
+2018-04-16 22:33:41,089 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 22:35:35,877 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:35:35,877 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:35:35,878 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:35:35,878 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:35:35,878 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:35:35,878 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:35:35,878 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:35:35,878 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:41:19,175 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:41:19,175 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:41:19,175 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:41:19,175 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:41:19,175 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:41:19,175 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:41:19,175 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:41:19,175 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:47:19,045 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:47:19,045 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:47:19,045 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:47:19,046 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:47:19,046 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:47:19,046 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:47:19,046 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:47:19,046 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:47:38,328 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:47:38,328 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:47:38,328 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:47:38,328 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:47:38,328 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:47:38,328 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:47:38,328 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:47:38,328 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:48:05,267 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:48:05,267 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:48:05,267 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:48:05,268 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:48:05,268 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:48:05,268 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:48:05,268 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:48:05,268 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 22:49:48,358 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 22:49:48,358 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 22:49:48,358 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 22:49:48,358 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 22:49:48,358 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 22:49:48,358 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 22:49:48,358 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 22:49:48,358 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:06:46,753 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:06:46,754 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:06:46,754 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:06:46,754 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:06:46,754 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:06:46,754 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:06:46,754 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:06:46,754 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:07:12,371 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:07:12,371 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:07:12,371 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:07:12,371 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:07:12,371 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:07:12,371 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:07:12,371 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:07:12,372 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:07:47,370 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:07:47,370 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:07:47,371 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:07:47,371 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:07:47,371 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:07:47,371 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:07:47,371 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:07:47,371 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:07:49,556 - RecordVideo - INFO - record cmd:
+ ['ffplay', '-f', 'dshow', '-i', 'video=@device_pnp_\\\\?\\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global', '-window_title', '按q退出', '-noborder']
+2018-04-16 23:11:37,281 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:11:37,281 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:11:37,281 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:11:37,281 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:11:37,281 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:11:37,281 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:11:37,281 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:11:37,281 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:11:39,463 - RecordVideo - INFO - record cmd:
+ ['ffplay', '-f', 'dshow', '-i', 'video=@device_pnp_\\\\?\\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global', '-window_title', '按q退出', '-noborder']
+2018-04-16 23:15:22,970 - RecordVideo - WARNING - kill exception:
+ 'NoneType' object has no attribute 'pid'
+2018-04-16 23:15:30,181 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:15:30,181 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:15:30,181 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:15:30,182 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:15:30,182 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:15:30,182 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:15:30,182 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:15:30,182 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:15:32,332 - RecordVideo - INFO - record cmd:
+ ['ffplay', '-f', 'dshow', '-i', 'video=@device_pnp_\\\\?\\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global', '-window_title', '按q退出', '-noborder']
+2018-04-16 23:15:53,819 - RecordVideo - INFO - record cmd:
+ ['ffplay', '-f', 'dshow', '-i', 'video=@device_pnp_\\\\?\\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global', '-window_title', '按q退出', '-noborder']
+2018-04-16 23:16:20,356 - RecordVideo - WARNING - kill exception:
+ 'NoneType' object has no attribute 'pid'
+2018-04-16 23:17:32,256 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:17:32,256 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:17:32,256 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:17:32,256 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:17:32,257 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:17:32,257 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:17:32,257 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:17:32,257 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:17:53,130 - RecordVideo - INFO - record cmd:
+ ['ffplay', '-f', 'dshow', '-i', 'video=@device_pnp_\\\\?\\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global', '-window_title', '按q退出', '-noborder']
+2018-04-16 23:19:03,213 - RecordVideo - WARNING - kill exception:
+ 'NoneType' object has no attribute 'pid'
+2018-04-16 23:20:34,470 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:20:34,471 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:20:34,471 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:20:34,471 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:20:34,471 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:20:34,471 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:20:34,471 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:20:34,471 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:21:37,751 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-16 23:21:37,752 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-16 23:21:37,752 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-16 23:21:37,752 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-16 23:21:37,752 - RecordVideo - INFO - vcodec: libx265
+2018-04-16 23:21:37,752 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-16 23:21:37,752 - RecordVideo - INFO - frame rate: 7.0
+2018-04-16 23:21:37,752 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-16 23:21:47,901 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_232147.mkv
+2018-04-16 23:21:47,902 - RecordVideo - INFO - 录制中...
+2018-04-16 23:21:55,010 - RecordVideo - INFO - ffmpeg pid: 12392
+2018-04-16 23:21:55,011 - RecordVideo - INFO - 录制将停止...
+2018-04-16 23:21:55,011 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 23:22:05,287 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_232205.mkv
+2018-04-16 23:22:05,288 - RecordVideo - INFO - 录制中...
+2018-04-16 23:22:12,340 - RecordVideo - INFO - ffmpeg pid: 6364
+2018-04-16 23:22:12,340 - RecordVideo - INFO - 录制将停止...
+2018-04-16 23:22:12,340 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 23:22:20,045 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}":audio="@device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7.0 -y C:\Users\lv\ctest\record\video\屏幕_20180416_232220.mkv
+2018-04-16 23:22:20,046 - RecordVideo - INFO - 录制中...
+2018-04-16 23:22:25,042 - RecordVideo - INFO - ffmpeg pid: 14216
+2018-04-16 23:22:25,043 - RecordVideo - INFO - 录制将停止...
+2018-04-16 23:22:25,043 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 23:22:30,565 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180416_232230.mkv
+2018-04-16 23:22:30,567 - RecordVideo - INFO - 录制中...
+2018-04-16 23:22:35,202 - RecordVideo - INFO - ffmpeg pid: 12892
+2018-04-16 23:22:35,202 - RecordVideo - INFO - 录制将停止...
+2018-04-16 23:22:35,202 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-16 23:22:39,731 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}":audio="@device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7.0 -y C:\Users\lv\ctest\record\video\屏幕_20180416_232239.mkv
+2018-04-16 23:22:39,732 - RecordVideo - INFO - 录制中...
+2018-04-16 23:22:46,906 - RecordVideo - INFO - ffmpeg pid: 9036
+2018-04-16 23:22:46,906 - RecordVideo - INFO - 录制将停止...
+2018-04-16 23:22:46,906 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-17 10:14:59,077 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-17 10:14:59,077 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-17 10:14:59,077 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-17 10:14:59,077 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-17 10:14:59,077 - RecordVideo - INFO - vcodec: libx265
+2018-04-17 10:14:59,078 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-17 10:14:59,078 - RecordVideo - INFO - frame rate: 7.0
+2018-04-17 10:14:59,078 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-17 10:15:00,591 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180417_101500.mkv
+2018-04-17 10:15:00,604 - RecordVideo - INFO - 录制中...
+2018-04-17 10:15:07,490 - RecordVideo - INFO - ffmpeg pid: 12828
+2018-04-17 10:15:07,490 - RecordVideo - INFO - 录制将停止...
+2018-04-17 10:15:07,490 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-17 10:15:10,820 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180417_101510.mkv
+2018-04-17 10:15:10,820 - RecordVideo - INFO - 录制中...
+2018-04-17 10:15:21,737 - RecordVideo - INFO - ffmpeg pid: 11156
+2018-04-17 10:15:21,738 - RecordVideo - INFO - 录制将停止...
+2018-04-17 10:15:21,738 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-17 10:22:16,190 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-17 10:22:16,190 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-17 10:22:16,190 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-17 10:22:16,190 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-17 10:22:16,190 - RecordVideo - INFO - vcodec: libx265
+2018-04-17 10:22:16,191 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-17 10:22:16,191 - RecordVideo - INFO - frame rate: 7.0
+2018-04-17 10:22:16,191 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-17 10:22:20,716 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180417_102220.mkv
+2018-04-17 10:22:20,717 - RecordVideo - INFO - 录制中...
+2018-04-17 10:22:23,098 - RecordVideo - INFO - ffmpeg version N-90553-gbe502ec6cd Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 7.3.0 (GCC)
+  configuration: --disable-static --enable-shared --enable-gpl --enable-version3 --enable-sdl2 --enable-bzlib --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth
+  libavutil      56. 12.100 / 56. 12.100
+  libavcodec     58. 16.100 / 58. 16.100
+  libavformat    58. 10.100 / 58. 10.100
+  libavdevice    58.  2.100 / 58.  2.100
+  libavfilter     7. 13.100 /  7. 13.100
+  libswscale      5.  0.102 /  5.  0.102
+  libswresample   3.  0.101 /  3.  0.101
+  libpostproc    55.  0.100 / 55.  0.100
+Guessed Channel Layout for Input Stream #0.1 : stereo
+Input #0, dshow, from 'video=@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global:audio=@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}':
+  Duration: N/A, start: 350265.885000, bitrate: 1411 kb/s
+    Stream #0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422, 640x480, 30 fps, 30 tbr, 10000k tbn, 10000k tbc
+    Stream #0:1: Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> hevc (libx265))
+  Stream #0:1 -> #0:1 (pcm_s16le (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+x265 [info]: HEVC encoder version 2.7+19-1fafca24a399
+x265 [info]: build info [Windows][GCC 7.3.0][64 bit] 8bit+10bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX
+x265 [info]: Main 4:2:2 10 profile, Level-4 (Main tier)
+x265 [info]: Thread pool created using 4 threads
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 2 / wpp(32 rows)
+x265 [info]: Coding QT: max CU size, min CU size : 32 / 16
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : dia / 57 / 0 / 2
+x265 [info]: Keyframe min / max / scenecut / bias: 7 / 250 / 0 / 5.00
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / off
+x265 [info]: Rate Control / qCompress            : CRF-28.0 / 0.60
+x265 [info]: tools: rd=2 psy-rd=2.00 early-skip rskip tmvp fast-intra
+x265 [info]: tools: strong-intra-smoothing lslices=6 deblock
+Output #0, matroska, to 'C:\Users\lv\ctest\record\video\鎽勫儚澶確20180417_102220.mkv':
+  Metadata:
+    encoder         : Lavf58.10.100
+    Stream #0:0: Video: hevc (libx265), yuv422p, 1280x1024, q=2-31, 7 fps, 1k tbn, 7 tbc
+    Metadata:
+      encoder         : Lavc58.16.100 libx265
+    Stream #0:1: Audio: mp3 (libmp3lame) (U[0][0][0] / 0x0055), 44100 Hz, stereo, s16p
+    Metadata:
+      encoder         : Lavc58.16.100 libmp3lame
+frame=    4 fps=0.0 q=-0.0 size=      14kB time=00:00:00.90 bitrate= 128.3kbits/s speed=1.79x    
+
+2018-04-17 10:22:25,126 - RecordVideo - INFO - frame=    8 fps=7.9 q=-0.0 size=      14kB time=00:00:01.43 bitrate=  81.0kbits/s speed=1.41x    
+frame=   12 fps=7.9 q=-0.0 size=      14kB time=00:00:02.00 bitrate=  57.9kbits/s dup=0 drop=1 speed=1.31x    
+frame=   15 fps=7.4 q=-0.0 size=      14kB time=00:00:02.43 bitrate=  47.7kbits/s dup=0 drop=1 speed= 1.2x    
+frame=   19 fps=7.5 q=-0.0 size=      14kB time=00:00:03.00 bitrate=  38.6kbits/s dup=0 drop=2 speed=1.18x    
+
+2018-04-17 10:22:27,141 - RecordVideo - INFO - frame=   22 fps=7.2 q=-0.0 size=      14kB time=00:00:03.43 bitrate=  33.8kbits/s dup=0 drop=2 speed=1.13x    
+frame=   26 fps=7.3 q=-0.0 size=      14kB time=00:00:04.00 bitrate=  29.0kbits/s dup=0 drop=3 speed=1.13x    
+frame=   29 fps=7.1 q=-0.0 size=      14kB time=00:00:04.43 bitrate=  26.2kbits/s dup=0 drop=3 speed=1.09x    
+frame=   33 fps=7.2 q=-0.0 size=      14kB time=00:00:05.00 bitrate=  23.2kbits/s dup=0 drop=4 speed= 1.1x    
+
+2018-04-17 10:22:29,168 - RecordVideo - INFO - frame=   36 fps=7.1 q=-0.0 size=      14kB time=00:00:05.43 bitrate=  21.3kbits/s dup=0 drop=4 speed=1.07x    
+frame=   40 fps=7.2 q=-0.0 size=    1056kB time=00:00:06.00 bitrate=1441.8kbits/s dup=0 drop=5 speed=1.08x    
+frame=   43 fps=7.1 q=-0.0 size=    1056kB time=00:00:06.43 bitrate=1345.6kbits/s dup=0 drop=5 speed=1.06x    
+frame=   47 fps=7.1 q=-0.0 size=    1056kB time=00:00:07.00 bitrate=1235.9kbits/s dup=0 drop=6 speed=1.06x    
+
+2018-04-17 10:22:31,190 - RecordVideo - INFO - frame=   50 fps=7.1 q=-0.0 size=    1056kB time=00:00:07.43 bitrate=1164.5kbits/s dup=0 drop=6 speed=1.05x    
+frame=   54 fps=7.1 q=-0.0 size=    1056kB time=00:00:08.00 bitrate=1081.4kbits/s dup=0 drop=7 speed=1.05x    
+frame=   57 fps=7.0 q=-0.0 size=    1056kB time=00:00:08.43 bitrate=1026.4kbits/s dup=0 drop=7 speed=1.04x    
+frame=   61 fps=7.1 q=-0.0 size=    1056kB time=00:00:09.00 bitrate= 961.3kbits/s dup=0 drop=8 speed=1.05x    
+
+2018-04-17 10:22:33,206 - RecordVideo - INFO - frame=   64 fps=7.0 q=-0.0 size=    1056kB time=00:00:09.43 bitrate= 917.5kbits/s dup=0 drop=8 speed=1.04x    
+frame=   68 fps=7.1 q=-0.0 size=    1056kB time=00:00:10.00 bitrate= 865.1kbits/s dup=0 drop=9 speed=1.04x    
+frame=   72 fps=7.1 q=-0.0 size=    1056kB time=00:00:10.57 bitrate= 818.4kbits/s dup=0 drop=9 speed=1.05x    
+frame=   75 fps=7.1 q=-0.0 size=    2059kB time=00:00:11.00 bitrate=1533.4kbits/s dup=0 drop=10 speed=1.04x    
+
+2018-04-17 10:22:35,241 - RecordVideo - INFO - frame=   78 fps=7.0 q=-0.0 size=    2059kB time=00:00:11.43 bitrate=1475.8kbits/s dup=0 drop=10 speed=1.03x    
+frame=   82 fps=7.1 q=-0.0 size=    2059kB time=00:00:12.00 bitrate=1405.6kbits/s dup=0 drop=11 speed=1.03x    
+frame=   86 fps=7.1 q=-0.0 size=    2059kB time=00:00:12.57 bitrate=1341.8kbits/s dup=0 drop=11 speed=1.04x    
+frame=   90 fps=7.1 q=-0.0 size=    2059kB time=00:00:13.14 bitrate=1283.4kbits/s dup=0 drop=12 speed=1.04x    
+
+2018-04-17 10:22:37,310 - RecordVideo - INFO - frame=   93 fps=7.1 q=-0.0 size=    2059kB time=00:00:13.57 bitrate=1242.9kbits/s dup=0 drop=13 speed=1.03x    
+frame=   97 fps=7.1 q=-0.0 size=    2059kB time=00:00:14.14 bitrate=1192.7kbits/s dup=0 drop=13 speed=1.04x    
+frame=  100 fps=7.1 q=-0.0 size=    2059kB time=00:00:14.57 bitrate=1157.6kbits/s dup=0 drop=13 speed=1.03x    
+frame=  104 fps=7.1 q=-0.0 size=    2059kB time=00:00:15.14 bitrate=1113.9kbits/s dup=0 drop=14 speed=1.03x    
+
+2018-04-17 10:22:39,622 - RecordVideo - INFO - frame=  106 fps=7.0 q=-0.0 size=    2059kB time=00:00:15.43 bitrate=1093.3kbits/s dup=0 drop=14 speed=1.01x    
+frame=  111 fps=7.0 q=-0.0 size=    3128kB time=00:00:16.14 bitrate=1587.2kbits/s dup=0 drop=15 speed=1.02x    
+frame=  115 fps=7.0 q=-0.0 size=    3128kB time=00:00:16.88 bitrate=1517.2kbits/s dup=0 drop=16 speed=1.03x    
+frame=  120 fps=7.0 q=-0.0 size=    3128kB time=00:00:17.43 bitrate=1470.1kbits/s dup=0 drop=16 speed=1.02x    
+
+2018-04-17 10:22:41,639 - RecordVideo - INFO - frame=  124 fps=7.1 q=-0.0 size=    3128kB time=00:00:18.00 bitrate=1423.5kbits/s dup=0 drop=17 speed=1.03x    
+frame=  128 fps=7.1 q=-0.0 size=    3128kB time=00:00:18.57 bitrate=1379.7kbits/s dup=0 drop=17 speed=1.03x    
+frame=  131 fps=7.1 q=-0.0 size=    3128kB time=00:00:19.00 bitrate=1348.5kbits/s dup=0 drop=18 speed=1.02x    
+frame=  134 fps=7.0 q=-0.0 size=    3128kB time=00:00:19.43 bitrate=1318.8kbits/s dup=0 drop=18 speed=1.02x    
+
+2018-04-17 10:22:43,676 - RecordVideo - INFO - frame=  138 fps=7.1 q=-0.0 size=    3128kB time=00:00:20.00 bitrate=1281.1kbits/s dup=0 drop=19 speed=1.02x    
+frame=  142 fps=7.1 q=-0.0 size=    3128kB time=00:00:20.57 bitrate=1245.6kbits/s dup=0 drop=19 speed=1.02x    
+frame=  145 fps=7.0 q=-0.0 size=    4279kB time=00:00:21.00 bitrate=1669.2kbits/s dup=0 drop=20 speed=1.02x    
+frame=  148 fps=7.0 q=-0.0 size=    4279kB time=00:00:21.43 bitrate=1635.8kbits/s dup=0 drop=20 speed=1.02x    
+
+2018-04-17 10:22:46,137 - RecordVideo - INFO - frame=  152 fps=7.0 q=-0.0 size=    4279kB time=00:00:22.00 bitrate=1593.3kbits/s dup=0 drop=21 speed=1.02x    
+frame=  156 fps=7.1 q=-0.0 size=    4279kB time=00:00:22.57 bitrate=1553.0kbits/s dup=0 drop=21 speed=1.02x    
+frame=  160 fps=7.0 q=-0.0 size=    4279kB time=00:00:23.14 bitrate=1514.6kbits/s dup=0 drop=22 speed=1.02x    
+frame=  162 fps=6.9 q=-0.0 size=    4279kB time=00:00:23.43 bitrate=1496.2kbits/s dup=0 drop=22 speed=   1x    
+
+2018-04-17 10:22:48,454 - RecordVideo - INFO - frame=  166 fps=6.9 q=-0.0 size=    4279kB time=00:00:24.00 bitrate=1460.6kbits/s dup=0 drop=23 speed=   1x    
+[dshow @ 0000014873c5f800] real-time buffer [@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global] [video input] too full or near too full (80% of size: 3041280 [rtbufsize parameter])! frame dropped!
+frame=  170 fps=6.9 q=-0.0 size=    4279kB time=00:00:24.57 bitrate=1426.6kbits/s dup=0 drop=23 speed=0.996x    
+frame=  176 fps=7.0 q=-0.0 size=    4279kB time=00:00:25.43 bitrate=1378.5kbits/s dup=0 drop=24 speed=1.01x    
+frame=  180 fps=7.0 q=-0.0 size=    5381kB time=00:00:26.00 bitrate=1695.4kbits/s dup=0 drop=24 speed=1.01x    
+
+2018-04-17 10:22:50,485 - RecordVideo - INFO - frame=  184 fps=7.0 q=-0.0 size=    5381kB time=00:00:26.57 bitrate=1659.0kbits/s dup=0 drop=24 speed=1.01x    
+frame=  189 fps=7.0 q=-0.0 size=    5381kB time=00:00:27.28 bitrate=1615.5kbits/s dup=0 drop=25 speed=1.02x    
+frame=  192 fps=7.0 q=-0.0 size=    5381kB time=00:00:27.88 bitrate=1580.6kbits/s dup=0 drop=26 speed=1.02x    
+frame=  197 fps=7.1 q=-0.0 size=    5381kB time=00:00:28.43 bitrate=1550.6kbits/s dup=0 drop=26 speed=1.02x    
+
+2018-04-17 10:22:52,509 - RecordVideo - INFO - frame=  200 fps=7.0 q=-0.0 size=    5381kB time=00:00:28.90 bitrate=1525.0kbits/s dup=0 drop=27 speed=1.02x    
+frame=  204 fps=7.1 q=-0.0 size=    5381kB time=00:00:29.43 bitrate=1497.9kbits/s dup=0 drop=27 speed=1.02x    
+frame=  207 fps=7.0 q=-0.0 size=    5381kB time=00:00:29.89 bitrate=1474.4kbits/s dup=0 drop=28 speed=1.02x    
+frame=  211 fps=7.1 q=-0.0 size=    5381kB time=00:00:30.43 bitrate=1448.6kbits/s dup=0 drop=28 speed=1.02x    
+
+2018-04-17 10:22:54,528 - RecordVideo - INFO - frame=  214 fps=7.0 q=-0.0 size=    6520kB time=00:00:30.89 bitrate=1729.0kbits/s dup=0 drop=29 speed=1.02x    
+frame=  218 fps=7.0 q=-0.0 size=    6520kB time=00:00:31.43 bitrate=1699.4kbits/s dup=0 drop=29 speed=1.02x    
+frame=  221 fps=7.0 q=-0.0 size=    6520kB time=00:00:31.91 bitrate=1673.8kbits/s dup=0 drop=30 speed=1.01x    
+frame=  225 fps=7.0 q=-0.0 size=    6520kB time=00:00:32.43 bitrate=1647.0kbits/s dup=0 drop=30 speed=1.02x    
+
+2018-04-17 10:22:56,555 - RecordVideo - INFO - frame=  228 fps=7.0 q=-0.0 size=    6520kB time=00:00:32.90 bitrate=1623.4kbits/s dup=0 drop=31 speed=1.01x    
+frame=  232 fps=7.0 q=-0.0 size=    6520kB time=00:00:33.43 bitrate=1597.7kbits/s dup=0 drop=31 speed=1.01x    
+frame=  235 fps=7.0 q=-0.0 size=    6520kB time=00:00:33.89 bitrate=1575.8kbits/s dup=0 drop=32 speed=1.01x    
+frame=  239 fps=7.0 q=-0.0 size=    6520kB time=00:00:34.43 bitrate=1551.3kbits/s dup=0 drop=32 speed=1.01x    
+
+2018-04-17 10:22:58,588 - RecordVideo - INFO - frame=  242 fps=7.0 q=-0.0 size=    6520kB time=00:00:34.88 bitrate=1530.9kbits/s dup=0 drop=33 speed=1.01x    
+frame=  246 fps=7.0 q=-0.0 size=    6520kB time=00:00:35.43 bitrate=1507.5kbits/s dup=0 drop=33 speed=1.01x    
+frame=  249 fps=7.0 q=-0.0 size=    7526kB time=00:00:35.90 bitrate=1717.0kbits/s dup=0 drop=34 speed=1.01x    
+frame=  253 fps=7.0 q=-0.0 size=    7526kB time=00:00:36.43 bitrate=1692.3kbits/s dup=0 drop=34 speed=1.01x    
+
+2018-04-17 10:23:00,615 - RecordVideo - INFO - frame=  256 fps=7.0 q=-0.0 size=    7670kB time=00:00:36.89 bitrate=1702.8kbits/s dup=0 drop=35 speed=1.01x    
+frame=  260 fps=7.0 q=-0.0 size=    7670kB time=00:00:37.43 bitrate=1678.6kbits/s dup=0 drop=35 speed=1.01x    
+frame=  264 fps=7.0 q=-0.0 size=    7670kB time=00:00:38.00 bitrate=1653.4kbits/s dup=0 drop=36 speed=1.01x    
+frame=  268 fps=7.0 q=-0.0 size=    7670kB time=00:00:38.57 bitrate=1628.9kbits/s dup=0 drop=36 speed=1.01x    
+
+2018-04-17 10:23:02,625 - RecordVideo - INFO - frame=  271 fps=7.0 q=-0.0 size=    7670kB time=00:00:39.00 bitrate=1611.0kbits/s dup=0 drop=37 speed=1.01x    
+frame=  275 fps=7.0 q=-0.0 size=    7670kB time=00:00:39.57 bitrate=1587.8kbits/s dup=0 drop=37 speed=1.01x    
+frame=  278 fps=7.0 q=-0.0 size=    7670kB time=00:00:40.00 bitrate=1570.7kbits/s dup=0 drop=38 speed=1.01x    
+frame=  282 fps=7.0 q=-0.0 size=    7670kB time=00:00:40.57 bitrate=1548.6kbits/s dup=0 drop=38 speed=1.01x    
+
+2018-04-17 10:23:04,660 - RecordVideo - INFO - frame=  285 fps=7.0 q=-0.0 size=    7670kB time=00:00:41.00 bitrate=1532.4kbits/s dup=0 drop=39 speed=1.01x    
+frame=  289 fps=7.0 q=-0.0 size=    7670kB time=00:00:41.57 bitrate=1511.4kbits/s dup=0 drop=39 speed=1.01x    
+frame=  292 fps=7.0 q=-0.0 size=    8772kB time=00:00:42.00 bitrate=1710.8kbits/s dup=0 drop=40 speed=1.01x    
+frame=  296 fps=7.0 q=-0.0 size=    8772kB time=00:00:42.57 bitrate=1687.9kbits/s dup=0 drop=40 speed=1.01x    
+
+2018-04-17 10:23:06,677 - RecordVideo - INFO - frame=  299 fps=7.0 q=-0.0 size=    8772kB time=00:00:43.00 bitrate=1671.1kbits/s dup=0 drop=41 speed=1.01x    
+frame=  303 fps=7.0 q=-0.0 size=    8772kB time=00:00:43.57 bitrate=1649.2kbits/s dup=0 drop=41 speed=1.01x    
+frame=  306 fps=7.0 q=-0.0 size=    8772kB time=00:00:44.00 bitrate=1633.1kbits/s dup=0 drop=42 speed=1.01x    
+frame=  310 fps=7.0 q=-0.0 size=    8772kB time=00:00:44.57 bitrate=1612.2kbits/s dup=0 drop=42 speed=1.01x    
+
+2018-04-17 10:23:08,691 - RecordVideo - INFO - frame=  313 fps=7.0 q=-0.0 size=    8772kB time=00:00:45.00 bitrate=1596.8kbits/s dup=0 drop=43 speed=1.01x    
+frame=  317 fps=7.0 q=-0.0 size=    8772kB time=00:00:45.57 bitrate=1576.8kbits/s dup=0 drop=43 speed=1.01x    
+frame=  320 fps=7.0 q=-0.0 size=    8772kB time=00:00:46.00 bitrate=1562.1kbits/s dup=0 drop=44 speed=1.01x    
+frame=  324 fps=7.0 q=-0.0 size=    8772kB time=00:00:46.57 bitrate=1542.9kbits/s dup=0 drop=44 speed=1.01x    
+
+2018-04-17 10:23:10,710 - RecordVideo - INFO - frame=  327 fps=7.0 q=-0.0 size=    9838kB time=00:00:47.00 bitrate=1714.7kbits/s dup=0 drop=45 speed=1.01x    
+frame=  331 fps=7.0 q=-0.0 size=    9838kB time=00:00:47.57 bitrate=1694.2kbits/s dup=0 drop=45 speed=1.01x    
+frame=  334 fps=7.0 q=-0.0 size=    9838kB time=00:00:48.00 bitrate=1679.0kbits/s dup=0 drop=46 speed=1.01x    
+frame=  338 fps=7.0 q=-0.0 size=    9838kB time=00:00:48.57 bitrate=1659.3kbits/s dup=0 drop=46 speed=1.01x    
+
+2018-04-17 10:23:12,722 - RecordVideo - INFO - frame=  341 fps=7.0 q=-0.0 size=    9838kB time=00:00:49.00 bitrate=1644.8kbits/s dup=0 drop=47 speed=1.01x    
+frame=  345 fps=7.0 q=-0.0 size=    9838kB time=00:00:49.57 bitrate=1625.8kbits/s dup=0 drop=47 speed=1.01x    
+frame=  348 fps=7.0 q=-0.0 size=    9838kB time=00:00:50.00 bitrate=1611.9kbits/s dup=0 drop=48 speed=1.01x    
+frame=  352 fps=7.0 q=-0.0 size=    9838kB time=00:00:50.57 bitrate=1593.7kbits/s dup=0 drop=48 speed=1.01x    
+
+2018-04-17 10:23:14,750 - RecordVideo - INFO - frame=  355 fps=7.0 q=-0.0 size=    9838kB time=00:00:51.00 bitrate=1580.3kbits/s dup=0 drop=49 speed=1.01x    
+frame=  359 fps=7.0 q=-0.0 size=    9838kB time=00:00:51.57 bitrate=1562.8kbits/s dup=0 drop=49 speed=1.01x    
+frame=  363 fps=7.0 q=-0.0 size=   10863kB time=00:00:52.14 bitrate=1706.7kbits/s dup=0 drop=50 speed=1.01x    
+frame=  366 fps=7.0 q=-0.0 size=   10863kB time=00:00:52.57 bitrate=1692.8kbits/s dup=0 drop=50 speed=1.01x    
+
+2018-04-17 10:23:16,772 - RecordVideo - INFO - frame=  370 fps=7.0 q=-0.0 size=   10863kB time=00:00:53.14 bitrate=1674.5kbits/s dup=0 drop=51 speed=1.01x    
+frame=  373 fps=7.0 q=-0.0 size=   10863kB time=00:00:53.57 bitrate=1661.2kbits/s dup=0 drop=51 speed=1.01x    
+frame=  377 fps=7.0 q=-0.0 size=   10863kB time=00:00:54.14 bitrate=1643.6kbits/s dup=0 drop=52 speed=1.01x    
+frame=  381 fps=7.0 q=-0.0 size=   10863kB time=00:00:54.71 bitrate=1626.5kbits/s dup=0 drop=52 speed=1.01x    
+
+2018-04-17 10:23:58,395 - RecordVideo - INFO - frame=  384 fps=7.0 q=-0.0 size=   10863kB time=00:00:55.14 bitrate=1613.8kbits/s dup=0 drop=53 speed=1.01x    
+
+2018-04-17 10:23:58,396 - RecordVideo - INFO - ffmpeg pid: 13820
+2018-04-17 10:23:58,396 - RecordVideo - INFO - 录制将停止...
+2018-04-17 10:23:58,396 - RecordVideo - INFO - ffmpeg进程状态: True
+2018-04-17 13:59:11,597 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-17 13:59:11,615 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-17 13:59:11,615 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-17 13:59:11,616 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-17 13:59:11,616 - RecordVideo - INFO - vcodec: libx265
+2018-04-17 13:59:11,616 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-17 13:59:11,616 - RecordVideo - INFO - frame rate: 7.0
+2018-04-17 13:59:11,616 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video
+2018-04-17 13:59:14,395 - RecordVideo - INFO - record cmd:
+ ffmpeg -f dshow -i video="@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global":audio="@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}" -acodec libmp3lame -vcodec libx265 -preset:v ultrafast -tune:v zerolatency -s 1280x1024 -r 7 -y C:\Users\lv\ctest\record\video\摄像头_20180417_135914.mkv
+2018-04-17 13:59:14,406 - RecordVideo - INFO - 录制中...
+2018-04-17 13:59:16,524 - RecordVideo - INFO - ffmpeg version N-90553-gbe502ec6cd Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 7.3.0 (GCC)
+  configuration: --disable-static --enable-shared --enable-gpl --enable-version3 --enable-sdl2 --enable-bzlib --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth
+  libavutil      56. 12.100 / 56. 12.100
+  libavcodec     58. 16.100 / 58. 16.100
+  libavformat    58. 10.100 / 58. 10.100
+  libavdevice    58.  2.100 / 58.  2.100
+  libavfilter     7. 13.100 /  7. 13.100
+  libswscale      5.  0.102 /  5.  0.102
+  libswresample   3.  0.101 /  3.  0.101
+  libpostproc    55.  0.100 / 55.  0.100
+Guessed Channel Layout for Input Stream #0.1 : stereo
+Input #0, dshow, from 'video=@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global:audio=@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}':
+  Duration: N/A, start: 363280.309000, bitrate: N/A
+    Stream #0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422, 640x480, 30 fps, 30 tbr, 10000k tbn, 10000k tbc
+    Stream #0:1: Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s
+Stream mapping:
+
+2018-04-17 13:59:18,729 - RecordVideo - INFO -   Stream #0:0 -> #0:0 (rawvideo (native) -> hevc (libx265))
+  Stream #0:1 -> #0:1 (pcm_s16le (native) -> mp3 (libmp3lame))
+Press [q] to stop, [?] for help
+x265 [info]: HEVC encoder version 2.7+19-1fafca24a399
+x265 [info]: build info [Windows][GCC 7.3.0][64 bit] 8bit+10bit
+[dshow @ 000001ed1cdef800] real-time buffer [@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global] [video input] too full or near too full (101% of size: 3041280 [rtbufsize parameter])! frame dropped!
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX
+x265 [info]: Main 4:2:2 10 profile, Level-4 (Main tier)
+x265 [info]: Thread pool created using 4 threads
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 2 / wpp(32 rows)
+x265 [info]: Coding QT: max CU size, min CU size : 32 / 16
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : dia / 57 / 0 / 2
+x265 [info]: Keyframe min / max / scenecut / bias: 7 / 250 / 0 / 5.00
+x265 [info]: Lookahead / bframes / badapt        : 0 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / off
+x265 [info]: Rate Control / qCompress            : CRF-28.0 / 0.60
+x265 [info]: tools: rd=2 psy-rd=2.00 early-skip rskip tmvp fast-intra
+x265 [info]: tools: strong-intra-smoothing lslices=6 deblock
+    Last message repeated 1 times
+frame=    2 fps=0.0 q=0.0 size=       0kB time=-577014:32:22.77 bitrate=  -0.0kbits/s speed=N/A    
+[dshow @ 000001ed1cdef800] real-time buffer [@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global] [video input] too full or near too full (101% of size: 3041280 [rtbufsize parameter])! frame dropped!
+    Last message repeated 2 times
+Output #0, matroska, to 'C:\Users\lv\ctest\record\video\鎽勫儚澶確20180417_135914.mkv':
+  Metadata:
+    encoder         : Lavf58.10.100
+    Stream #0:0: Video: hevc (libx265), yuv422p(progressive), 1280x1024, q=2-31, 7 fps, 1k tbn, 7 tbc
+    Metadata:
+      encoder         : Lavc58.16.100 libx265
+    Stream #0:1: Audio: mp3 (libmp3lame) (U[0][0][0] / 0x0055), 44100 Hz, stereo, s16p
+    Metadata:
+      encoder         : Lavc58.16.100 libmp3lame
+[dshow @ 000001ed1cdef800] real-time buffer [@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global] [video input] too full or near too full (101% of size: 3041280 [rtbufsize parameter])! frame dropped!
+frame=    4 fps=3.9 q=-0.0 size=       8kB time=00:00:00.43 bitrate= 143.0kbits/s dup=0 drop=3 speed=0.42x    
+frame=    8 fps=5.1 q=-0.0 size=       8kB time=00:00:01.89 bitrate=  32.5kbits/s dup=0 drop=4 speed=1.21x    
+
+2018-04-17 13:59:20,761 - RecordVideo - INFO - frame=   13 fps=6.2 q=-0.0 size=       8kB time=00:00:02.43 bitrate=  25.3kbits/s dup=0 drop=5 speed=1.17x    
+frame=   17 fps=6.6 q=-0.0 size=       8kB time=00:00:03.00 bitrate=  20.5kbits/s dup=0 drop=5 speed=1.16x    
+frame=   21 fps=6.7 q=-0.0 size=       8kB time=00:00:03.57 bitrate=  17.2kbits/s dup=0 drop=6 speed=1.14x    
+frame=   25 fps=6.7 q=-0.0 size=       8kB time=00:00:04.14 bitrate=  14.8kbits/s dup=0 drop=6 speed=1.12x    
+
+2018-04-17 13:59:22,781 - RecordVideo - INFO - frame=   29 fps=6.9 q=-0.0 size=       8kB time=00:00:04.71 bitrate=  13.0kbits/s dup=0 drop=7 speed=1.12x    
+frame=   32 fps=6.8 q=-0.0 size=       8kB time=00:00:05.14 bitrate=  12.0kbits/s dup=0 drop=7 speed=1.09x    
+frame=   36 fps=6.9 q=-0.0 size=     715kB time=00:00:05.71 bitrate=1025.5kbits/s dup=0 drop=8 speed=1.09x    
+frame=   39 fps=6.8 q=-0.0 size=     715kB time=00:00:06.14 bitrate= 953.9kbits/s dup=0 drop=8 speed=1.07x    
+
+2018-04-17 13:59:24,654 - RecordVideo - INFO - ffmpeg pid: 7212
+2018-04-17 13:59:24,655 - RecordVideo - INFO - 录制将停止...
+2018-04-17 13:59:24,655 - RecordVideo - INFO - ffmpeg进程状态: False
+2018-04-17 13:59:24,856 - RecordVideo - INFO - frame=   43 fps=6.9 q=-0.0 size=     715kB time=00:00:06.71 bitrate= 872.7kbits/s dup=0 drop=9 speed=1.08x    
+frame=   46 fps=6.8 q=-0.0 size=     715kB time=00:00:07.14 bitrate= 820.3kbits/s dup=0 drop=9 speed=1.06x    
+frame=   50 fps=6.9 q=-0.0 size=     715kB time=00:00:07.71 bitrate= 759.6kbits/s dup=0 drop=10 speed=1.06x    
+frame=   53 fps=6.8 q=-0.0 size=     715kB time=00:00:08.39 bitrate= 697.9kbits/s dup=0 drop=10 speed=1.08x    
+
+2018-04-17 14:00:48,715 - RecordVideo - INFO - camera device name: @device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global
+2018-04-17 14:00:48,715 - RecordVideo - INFO - voice device name: @device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}
+2018-04-17 14:00:48,715 - RecordVideo - INFO - screen device name: @device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}
+2018-04-17 14:00:48,715 - RecordVideo - INFO - system voice device name: @device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}
+2018-04-17 14:00:48,715 - RecordVideo - INFO - vcodec: libx265
+2018-04-17 14:00:48,715 - RecordVideo - INFO - resolution: 1280x1024
+2018-04-17 14:00:48,716 - RecordVideo - INFO - frame rate: 7.0
+2018-04-17 14:00:48,716 - RecordVideo - INFO - save dir: C:\Users\lv\ctest\record\video

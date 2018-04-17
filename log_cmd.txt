@@ -1,0 +1,24 @@
+2018-04-16 17:15:28,089 - __main__ - INFO - (['ffmpeg version N-90553-gbe502ec6cd Copyright (c) 2000-2018 the FFmpeg developers\r\n  built with gcc 7.3.0 (GCC)\r\n  configuration: --disable-static --enable-shared --enable-gpl --enable-version3 --enable-sdl2 --enable-bzlib --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth\r\n  libavutil      56. 12.100 / 56. 12.100\r\n  libavcodec     58. 16.100 / 58. 16.100\r\n  libavformat    58. 10.100 / 58. 10.100\r\n  libavdevice    58.  2.100 / 58.  2.100\r\n  libavfilter     7. 13.100 /  7. 13.100\r\n  libswscale      5.  0.102 /  5.  0.102\r\n  libswresample   3.  0.101 /  3.  0.101\r\n  libpostproc    55.  0.100 / 55.  0.100\r\n[dshow @ 000002263d65ef40] DirectShow video devices (some may be both video and audio devices)\r\n[dshow @ 000002263d65ef40]  "USB2.0 HD UVC WebCam"\r\n[dshow @ 000002263d65ef40]     Alternative name "@device_pnp_\\\\?\\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global"\r\n[dshow @ 000002263d65ef40]  "screen-capture-recorder"\r\n[dshow @ 000002263d65ef40]     Alternative name "@device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\\{4EA69364-2C8A-4AE6-A561-56E4B5044439}"\r\n[dshow @ 000002263d65ef40] DirectShow audio devices\r\n[dshow @ 000002263d65ef40]  "麦克风 (Realtek High Definition Audio)"\r\n[dshow @ 000002263d65ef40]     Alternative name "@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}"\r\n[dshow @ 000002263d65ef40]  "virtual-audio-capturer"\r\n[dshow @ 000002263d65ef40]     Alternative name "@device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\\{8E146464-DB61-4309-AFA1-3578E927E935}"\r\ndummy: Immediate exit requested\r\n'], [''])
+2018-04-16 17:16:35,406 - __main__ - INFO - ffmpeg version N-90553-gbe502ec6cd Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 7.3.0 (GCC)
+  configuration: --disable-static --enable-shared --enable-gpl --enable-version3 --enable-sdl2 --enable-bzlib --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth
+  libavutil      56. 12.100 / 56. 12.100
+  libavcodec     58. 16.100 / 58. 16.100
+  libavformat    58. 10.100 / 58. 10.100
+  libavdevice    58.  2.100 / 58.  2.100
+  libavfilter     7. 13.100 /  7. 13.100
+  libswscale      5.  0.102 /  5.  0.102
+  libswresample   3.  0.101 /  3.  0.101
+  libpostproc    55.  0.100 / 55.  0.100
+[dshow @ 000001b91115ef40] DirectShow video devices (some may be both video and audio devices)
+[dshow @ 000001b91115ef40]  "USB2.0 HD UVC WebCam"
+[dshow @ 000001b91115ef40]     Alternative name "@device_pnp_\\?\usb#vid_04f2&pid_b354&mi_00#7&30d7ad30&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global"
+[dshow @ 000001b91115ef40]  "screen-capture-recorder"
+[dshow @ 000001b91115ef40]     Alternative name "@device_sw_{860BB310-5D01-11D0-BD3B-00A0C911CE86}\{4EA69364-2C8A-4AE6-A561-56E4B5044439}"
+[dshow @ 000001b91115ef40] DirectShow audio devices
+[dshow @ 000001b91115ef40]  "麦克风 (Realtek High Definition Audio)"
+[dshow @ 000001b91115ef40]     Alternative name "@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{571529B3-7DB3-42A3-ADEF-BBD82925C15D}"
+[dshow @ 000001b91115ef40]  "virtual-audio-capturer"
+[dshow @ 000001b91115ef40]     Alternative name "@device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}"
+dummy: Immediate exit requested
+

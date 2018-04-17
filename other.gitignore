@@ -1,0 +1,6 @@
+config.ini
+log.txt
+log_cmd.txt
+__pycache__
+*.7z
+*.mkv

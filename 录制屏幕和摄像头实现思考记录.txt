@@ -1,0 +1,49 @@
+
+实现方式：封装ffmpeg命令行工具
+功能：
+1.录制
+属性：
+record_video=true/false
+    录制视频开关
+record_vioce=true/false
+    录制声音开关
+recording=true/false
+    录制状态
+record_from='camera'/'screen'
+    录制源
+    
+#摄像头名称
+camera_name=''
+#麦克风名称
+maikefeng_name=''
+#录制屏幕名称
+screen_name=''
+#系统声音设备名称
+system_voice_device_name=''
+#视频编码
+video_codec='libx265'
+#分辨率
+resolution='1920x1080'
+#帧率
+brate=7.5
+#文件名称
+file_name='record'
+#文件后缀
+file_suffix='.mkv'
+方法：
+start()
+    开始录制
+record(from,type) 
+    #调用执行cmd命令行通用处理类的封装 #from 录制摄像头还是屏幕
+record_camera(type)
+    #type: video | voice | video & voice
+    实现录制摄像头
+record_screen(type)
+    实现录制屏幕
+stop()
+    停止录制
+output()
+    录制文件输出
+
+
+2.快捷键切换

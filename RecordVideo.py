@@ -1,6 +1,7 @@
 import datetime,time,sys,os,signal,re
 from datetime import datetime
 import subprocess,threading
+from subprocess import CalledProcessError
 # from multiprocessing import Process
 from threading import Thread
 import ctypes,inspect
@@ -81,38 +82,52 @@ class RecordVideo():
         self.logger.info('save dir: %s' % self.file_dir)
         
     def start_ffmpeg(self,cmd, shell = True):
-        print('录制中...')
-        self.logger.info('录制中...')
-        # print('cmd:\n%s' % cmd)
-        start_time = datetime.now()
-        self.process=subprocess.Popen(cmd, shell=shell, universal_newlines = True, stdin = subprocess.PIPE, stderr = subprocess.STDOUT, stdout = subprocess.PIPE)
-        # print(self.process.stdin)
-        line = ''
-        while self.recording:
-        
-            line += self.process.stdout.readline()
-            now = datetime.now()
-            if (now - start_time).total_seconds() >2:
-                # self.logger.info('recording...')
-                if self.process:
-                    log_text = 'ffmpeg 运行状态:%s' % ('终止' if (self.process.poll() is not None) else '运行中')
-                    print(log_text)
-                    self.logger.info(log_text) 
-                    
-                else:
-                    print('ffmpeg子进程已终止.')
-                # self.logger.info(line)
-                print(line)
-                line = ''
-                start_time = now
-                
-            # print(line)
+    
+        try:
+            print('录制中...')
+            self.logger.info('录制中...')
+            # print('cmd:\n%s' % cmd)
+            start_time = datetime.now()
+            self.process=subprocess.Popen(cmd, shell=shell, universal_newlines = True, stdin = subprocess.PIPE, stderr = subprocess.STDOUT, stdout = subprocess.PIPE)
+            line = ''
+            while self.recording:
             
-            if not self.recording:
-                self.process.stdin.write('q')
-                print(self.process.communicate())
-                break
+                line += self.process.stdout.readline()
+                now = datetime.now()
+                if (now - start_time).total_seconds() >2:
+                    # self.logger.info('recording...')
+                    ffmpeg_running = False
+                    if self.process:
+                        ffmpeg_running = self.process.poll() is None
+                        log_text = 'ffmpeg 运行状态:%s' % ('运行中' if ffmpeg_running else '终止')
+                        print(log_text)
+                        self.logger.info(log_text) 
+                        
+                    else:
+                        txt= 'ffmpeg子进程已终止.'
+                        print(txt)
+                        self.logger.warning(txt)
+                     
+                    if not ffmpeg_running:
+                        raise CalledProcessError(self.process.returncode, cmd)
+                    
+                    # self.logger.info(line)
+                    print(line)
+                    line = ''
+                    start_time = now
+                    
+                # print(line)
                 
+                if not self.recording:
+                    self.process.stdin.write('q')
+                    print(self.process.communicate())
+                    break
+        
+        except CalledProcessError as e:
+            log_txt = 'ffmpeg异常终止:\nreturn code: %d\ncmd:\n%s' % (e.returncode, e.cmd)
+            print(log_txt)
+            self.logger.warning(log_txt)      
+            self.recording = False
         # self.logger.info(self.process.communicate())
         # print('done.')
         
@@ -121,22 +136,23 @@ class RecordVideo():
        if target:
             print('cmd: \n%s' % cmd)
             self.logger.info('record cmd:\n %s' % cmd)
-            th=Thread(name=self.record_thread_name, target= target, args = (cmd,), daemon=True)
+            th=Thread(name=self.record_thread_name, target= target, args = (cmd,), daemon=False)
             th.start()
+            self.recording=True
             self.record_thread=th
             print('record thread,ident:%d' % self.record_thread.ident)
-            self.recording=True
-            
+            # th.join()
+                
     def stop_record(self):
         
         # print('threading active thread count:%d' % threading.active_count())
         try:
             
             self.recording = False
-            self.logger.info('ffmpeg pid: %d' % self.process.pid)
             self.logger.info('录制将停止...')
-            self.logger.info('ffmpeg进程状态: %s' % (self.process.poll() is not None))
-            self.recording=False
+            if self.process:
+                self.logger.info('ffmpeg进程状态: %s' % (self.process.poll() is not None))
+                print('subprocess return code:%d' % self.process.returncode)
             if self.record_thread.is_alive():
                 self.record_thread.join(1)
             print('record thread status: %s' % self.record_thread.is_alive())

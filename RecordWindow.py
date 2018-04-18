@@ -130,8 +130,13 @@ class RecordWindow(QtWidgets.QWidget):
         self.init_lcd()
              
      # 刷新录制时间
-    def onTimerOut(self):        
-        self.lcd.display(self.get_display_time(self.start_time))
+    def onTimerOut(self):       
+        print('on timer out monitor record status :%s' % self.recording)
+        if self.recording:
+            self.lcd.display(self.get_display_time(self.start_time))
+        else:
+            # self.stop_timer()
+            self.stop_record(force  = True)
         
     def get_display_time(self,old_time):
         delta_time = datetime.now() - old_time
@@ -256,9 +261,9 @@ class RecordWindow(QtWidgets.QWidget):
             
         self.rti.update_state(self.recording, self.record_type)
     
-    def stop_record(self):
+    def stop_record(self, force = False):
     
-        if self.recording:
+        if self.recording or force:
             self.stop_timer()    
             
             if self.record_type == RecordType.Camera:
@@ -273,9 +278,11 @@ class RecordWindow(QtWidgets.QWidget):
                 print(e)
             finally:  
                 self.update_state()
-        else:
-            #退出系统
-            self.close()
+        # else:
+            # exit_tip = '系统即将退出'
+            # print(exit_tip)
+            # 退出系统
+            # self.close()
         
     def record(self, rtype):
         

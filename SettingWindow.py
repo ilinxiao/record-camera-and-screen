@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets,QtCore
+from PyQt5 import QtWidgets,QtCore,QtGui
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -18,6 +18,9 @@ class SettingWindow(QDialog):
     def setupUi(self):
         self.setObjectName("SettingWindow")
         self.resize(386, 238)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("resource/gutin.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.setWindowIcon(icon)
         self.tabWidget = QtWidgets.QTabWidget(self)
         self.tabWidget.setGeometry(QtCore.QRect(10, 10, 371, 221))
         self.tabWidget.setObjectName("tabWidget")

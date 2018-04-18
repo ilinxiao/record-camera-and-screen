@@ -11,10 +11,10 @@ if sys.platform == "win32":
     base = "Win32GUI"
     
 executables = [
-    Executable('RecordWindow.py', base=base)
+    Executable('RecordWindow.py', base=base, icon = 'resource/gutin.ico')
 ]
-setup(  name = "recordwindow",
-        version = "0.1",
+setup(  name = "Gutin谷田会议视频录播管理系统",
+        version = "0.2",
         description = "record camera or screen",
         options = {"build_exe": build_exe_options},
         executables=executables

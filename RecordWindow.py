@@ -14,6 +14,8 @@ import RecordTrayIcon
 from RecordTrayIcon import *
 import RecordConfig
 from RecordConfig import *
+import RecordHelp
+from RecordHelp import *
 
 class RecordWindow(QtWidgets.QWidget):
 
@@ -188,7 +190,9 @@ class RecordWindow(QtWidgets.QWidget):
         self.sw = SettingWindow()
         self.settingAction.triggered.connect(self.sw.showSettingWindow)  
         #帮助
-        self.aboutAction=self.contextMenu.addAction('帮助')        
+        self.aboutAction=self.contextMenu.addAction('帮助')    
+        self.rh = RecordHelp()
+        self.aboutAction.triggered.connect(self.rh.showWindow)
         #退出
         self.exitAction = self.contextMenu.addAction('退出')
         self.exitAction.triggered.connect(self.close)

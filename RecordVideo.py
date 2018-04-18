@@ -26,7 +26,8 @@ class RecordVideo():
         # self.record_video=record_video
         # self.record_voice=record_voice
         #录制状态
-        self.recording=False
+        self.recording = False
+        self.exception_exit = False
         self.record_type=RecordType.Camera
         #文件名称
         self.file_name='record'
@@ -81,6 +82,28 @@ class RecordVideo():
         self.logger.info('frame rate: %s' % self.brate)
         self.logger.info('save dir: %s' % self.file_dir)
         
+        
+    def get_ffmpeg_path(self):
+        
+        datadir = ''
+        subdir = os.path.join('ffmpeg-shared','bin')
+        
+        if getattr(sys, 'frozen', False):
+            # The application is frozen
+            datadir = os.path.dirname(sys.executable)
+        else:
+            # The application is not frozen
+            # Change this bit to match where you store your data files:
+            datadir = os.path.dirname(__file__)
+        datadir = os.path.join(datadir, subdir)
+        datadir = os.path.abspath(datadir)
+        print(datadir)
+        #如果存在ffmpeg.exe
+        if os.path.isfile(os.path.join(datadir, 'ffmpeg.exe')):
+            return datadir
+        #兼容环境变量设置
+        return ''
+        
     def start_ffmpeg(self,cmd, shell = True):
     
         try:
@@ -109,6 +132,8 @@ class RecordVideo():
                         self.logger.warning(txt)
                      
                     if not ffmpeg_running:
+                        
+                        print(self.process.communicate())
                         raise CalledProcessError(self.process.returncode, cmd)
                     
                     # self.logger.info(line)
@@ -128,17 +153,22 @@ class RecordVideo():
             print(log_txt)
             self.logger.warning(log_txt)      
             self.recording = False
+            self.exception_exit = True
+            print('process is None?:%s' % (self.process is None))
+            # self.stop_record()
         # self.logger.info(self.process.communicate())
         # print('done.')
         
     def record(self,cmd='ffmpeg -h', target = None):
        
        if target:
+            cmd = os.path.join(self.get_ffmpeg_path(), cmd)
             print('cmd: \n%s' % cmd)
             self.logger.info('record cmd:\n %s' % cmd)
-            th=Thread(name=self.record_thread_name, target= target, args = (cmd,), daemon=False)
+            th=Thread(name=self.record_thread_name, target= target, args = (cmd,), daemon=True)
             th.start()
             self.recording=True
+            self.exception_exit = False
             self.record_thread=th
             print('record thread,ident:%d' % self.record_thread.ident)
             # th.join()
@@ -152,8 +182,12 @@ class RecordVideo():
             self.logger.info('录制将停止...')
             if self.process:
                 self.logger.info('ffmpeg进程状态: %s' % (self.process.poll() is not None))
-                print('subprocess return code:%d' % self.process.returncode)
+                if self.process.returncode:
+                    print('subprocess return code:%d' % self.process.returncode)
+            print('record thread status: %s' % self.record_thread.is_alive())
+            
             if self.record_thread.is_alive():
+                
                 self.record_thread.join(1)
             print('record thread status: %s' % self.record_thread.is_alive())
         except (Exception,KeyboardInterrupt) as e:

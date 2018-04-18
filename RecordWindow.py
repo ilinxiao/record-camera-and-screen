@@ -136,7 +136,11 @@ class RecordWindow(QtWidgets.QWidget):
             self.lcd.display(self.get_display_time(self.start_time))
         else:
             # self.stop_timer()
-            self.stop_record(force  = True)
+            self.stop_record(force  = self.exception_exit)
+            
+            if self.exception_exit:
+                time.sleep(2)
+                self.record(self.record_type)
         
     def get_display_time(self,old_time):
         delta_time = datetime.now() - old_time
@@ -199,7 +203,9 @@ class RecordWindow(QtWidgets.QWidget):
     @property
     def recording(self):
         return self.rv.recording
-
+    @property
+    def exception_exit(self):
+        return self.rv.exception_exit
     @property
     def record_type(self):
         return self.rv.record_type

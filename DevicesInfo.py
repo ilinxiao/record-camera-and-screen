@@ -1,6 +1,7 @@
 import re
 import RunCMD
 from RunCMD import run_cmd
+import cchardet
 
 class DevicesInfo():
 
@@ -33,7 +34,9 @@ class DevicesInfo():
         devices_output_copy = devices_output[0:]
         devices_txt = ''
         for txt in devices_output_copy:
-            devices_txt += txt.decode('utf-8').replace(r'\r\n','')
+            # charset = cchardet.detect(txt)
+            # if charset            
+            devices_txt += txt.decode('utf-8','ignore').replace(r'\r\n','')
         # print(dir(re))
         print(devices_txt)
         results = re.findall(r'\[[^\]]+\]([^\[]+)',devices_txt)

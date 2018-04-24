@@ -7,5 +7,5 @@ log_cmd.txt
 think.txt
 __pycache__
 dist
-build/bdist.win-amd64/
+build
 

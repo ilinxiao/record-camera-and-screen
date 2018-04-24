@@ -7,8 +7,8 @@ class DevicesInfo():
     def __init__(self):
         list_devices_cmd = 'ffmpeg -list_devices true -f dshow -i dummy'
         # status, output = subprocess.getstatusoutput(list_devices_cmd)
-        output_err, output_str = run_cmd(list_devices_cmd)
-        self.video_devices , self.voice_devices = self.extract_devices_info(''.join(output_err))
+        output_err, output_str = run_cmd(list_devices_cmd, universal_newlines = False)
+        self.video_devices , self.voice_devices = self.extract_devices_info(output_err)
         
     def get_device_info(self, text_list):
         device_list = []
@@ -28,9 +28,14 @@ class DevicesInfo():
                 i+=step
         return device_list
         
-    def extract_devices_info(self,devices_txt):    
+    def extract_devices_info(self,devices_output):    
         device_line = []
+        devices_output_copy = devices_output[0:]
+        devices_txt = ''
+        for txt in devices_output_copy:
+            devices_txt += txt.decode('utf-8').replace(r'\r\n','')
         # print(dir(re))
+        print(devices_txt)
         results = re.findall(r'\[[^\]]+\]([^\[]+)',devices_txt)
         # results.pop(0)
         video_devices_spos=-1
@@ -48,3 +53,11 @@ class DevicesInfo():
 
         return video_devices , voice_devices
 
+# if __name__ == '__main__':
+   # di = DevicesInfo()
+   # print('视频设备列表：\n%s' % di.video_devices)
+   # print('音频设备列表：\n%s' % di.voice_devices)
+   # print('音频设备列表：')
+   # for device in di.voice_devices:
+       # item = device[0]
+       # print(item.encode('utf-8').decode('gb2312'))

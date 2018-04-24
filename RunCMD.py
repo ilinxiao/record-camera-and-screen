@@ -11,12 +11,13 @@ def run_cmd(cmd, shell = True, universal_newlines = False):
                                                  stderr = subprocess.PIPE
                                                 ) as p:
         while True:
-            info=str(p.stdout.read(), encoding ='utf-8')
+            info=p.stdout.read()
             # print(dir(p.stderr))
-            # print(info)
-            err=str(p.stderr.read(), encoding = 'utf-8')
-            # print(err)
-            if not info and not err:
+            print(info)
+            err=p.stderr.read()
+            print(err)
+            # if not info and not err:
+            if info == b'' and err == b'':
                 if p.poll() is not None:  
                     break
             else:

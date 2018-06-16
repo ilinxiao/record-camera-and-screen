@@ -303,16 +303,30 @@ class RecordWindow(QtWidgets.QWidget):
             print('检测到正在录制，录制类型将切换...')   
             self.stop_record()
             
-        #开始录制
-        if rtype == RecordType.Camera:
-            print('开始录制摄像头...')
-            self.rv.record_camera()
-        elif rtype == RecordType.Screen:
-            print('开始录制屏幕...')
-            self.rv.record_screen()
-              
-        self.start_timer()
-        self.update_state()
+        if self.rv.check_device():
+            #开始录制
+            if rtype == RecordType.Camera:
+                print('开始录制摄像头...')
+                self.rv.record_camera()
+            elif rtype == RecordType.Screen:
+                print('开始录制屏幕...')
+                self.rv.record_screen()
+            
+            self.start_timer()
+            self.update_state()
+        else:
+        
+            question = QMessageBox.information(self, '提示', '检测到录制设备缺失，无法进行录制，请先完善设备设置。', QMessageBox.Yes)
+            # question = QMessageBox()
+            # question.setText('检测到录制设备缺失，无法进行录制，请先完善设备设置。')
+            # question.setWindowTitle('提示')
+            # question.setIcon(QMessageBox.Question)
+            # question.addButton(QMessageBox.Yes)
+            # question.addButton(QMessageBox.No)
+            # question.setDefaultButton(QMessageBox.No)
+            # ret = question.exec()
+            # if ret == QMessageBox.Yes:
+                # print('软件将退出.')
 
     ''''
         鼠标拖动窗体

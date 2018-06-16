@@ -173,7 +173,7 @@ class SettingWindow(QDialog):
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("Form", "设置-Development By Linxiao"))
+        self.setWindowTitle(_translate("Form", "设置"))
         self.label_3.setText(_translate("Form", "屏幕录制设备："))
         self.label_2.setText(_translate("Form", "声音输入设备："))
         self.label.setText(_translate("Form", "摄像头名称："))

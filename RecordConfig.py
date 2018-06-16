@@ -3,7 +3,7 @@
 # from DevicesInfo import *
 
 class RecordConfig():
-    def __init__(self, config_file_name = 'config.ini'):
+    def __init__(self, config_file_name = 'configByLinxiao.ini'):
         self.file_name = config_file_name
         self.encoding = 'gb2312'
         self.load()
@@ -41,6 +41,11 @@ class RecordConfig():
         conf.set(record_section_name,'vcodec','libx264')
         conf.set(record_section_name,'frame_rate','7.0')
         conf.set(record_section_name,'file_dir','.')
+        conf.set(record_section_name,'threads', '4')
+        
+        conf.add_section('author')
+        conf.set('author', 'name', 'linxiao')
+        conf.set('author', 'mail', '940950943@qq.com')
         
         self.config = conf
         self.write()

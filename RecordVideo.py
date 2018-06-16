@@ -11,7 +11,7 @@ import RecordConfig
 from RecordConfig import *
 import logging
 import RunCMD
-from RunCMD import run_cmd
+from RunCMD import get_ffmpeg_path
 
 class RecordVideo():
 
@@ -72,6 +72,8 @@ class RecordVideo():
         self.brate=rc.config.getfloat('record','frame_rate')
         #文件目录
         self.file_dir= os.path.abspath(rc.config.get('record','file_dir'))
+        #线程数
+        self.threads = rc.config.getint('record','threads')
         
         self.logger.info('camera device name: %s' % self.camera_name)
         self.logger.info('voice device name: %s' % self.voice_device_name)
@@ -82,27 +84,6 @@ class RecordVideo():
         self.logger.info('frame rate: %s' % self.brate)
         self.logger.info('save dir: %s' % self.file_dir)
         
-        
-    def get_ffmpeg_path(self):
-        
-        datadir = ''
-        subdir = os.path.join('ffmpeg-shared','bin')
-        
-        if getattr(sys, 'frozen', False):
-            # The application is frozen
-            datadir = os.path.dirname(sys.executable)
-        else:
-            # The application is not frozen
-            # Change this bit to match where you store your data files:
-            datadir = os.path.dirname(__file__)
-        datadir = os.path.join(datadir, subdir)
-        datadir = os.path.abspath(datadir)
-        print(datadir)
-        #如果存在ffmpeg.exe
-        if os.path.isfile(os.path.join(datadir, 'ffmpeg.exe')):
-            return datadir
-        #兼容环境变量设置
-        return ''
         
     def start_ffmpeg(self,cmd, shell = True):
     
@@ -159,17 +140,17 @@ class RecordVideo():
         # self.logger.info(self.process.communicate())
         # print('done.')
         
-    def record(self,cmd='ffmpeg -h', target = None):
+    def record(self, cmd='ffmpeg -h', target = None):
        
        if target:
-            cmd = os.path.join(self.get_ffmpeg_path(), cmd)
+            cmd = os.path.join(get_ffmpeg_path(), cmd)
             print('cmd: \n%s' % cmd)
             self.logger.info('record cmd:\n %s' % cmd)
-            th=Thread(name=self.record_thread_name, target= target, args = (cmd,), daemon=True)
+            self.record_thread = Thread(name=self.record_thread_name, target= target, args = (cmd,), daemon=True)
             th.start()
             self.recording=True
             self.exception_exit = False
-            self.record_thread=th
+            
             print('record thread,ident:%d' % self.record_thread.ident)
             # th.join()
                 
@@ -199,12 +180,13 @@ class RecordVideo():
         if self.camera_name and self.voice_device_name:
             
             self.record_type=RecordType.Camera
-            record_cmd='ffmpeg -f dshow -i video=\"%s\":audio=\"%s\" -acodec libmp3lame -vcodec %s -preset:v ultrafast -tune:v zerolatency -s %s -r %d -y %s' %(
+            record_cmd='ffmpeg -f dshow -i video=\"%s\":audio=\"%s\" -acodec libmp3lame -vcodec %s -preset:v ultrafast -tune:v zerolatency -s %s -r %d -threads %d -y %s' %(
             self.deal_with_device_name(self.camera_name),
             self.deal_with_device_name(self.voice_device_name),
             self.video_codec,
             self.resolution,
             self.brate,
+            self.threads,
             self.get_file_name()
             )
             # print(record_cmd)
@@ -213,16 +195,43 @@ class RecordVideo():
     def record_screen(self):
         if self.screen_name and self.system_voice_device_name:
             self.record_type=RecordType.Screen
-            record_cmd='ffmpeg -f dshow -i video="{}":audio="{}" -acodec libmp3lame -vcodec {} -preset:v ultrafast -tune:v zerolatency -s {} -r {} -y {}'.format(
+            record_cmd='ffmpeg -f dshow -i video="{}":audio="{}" -acodec libmp3lame -vcodec {} -preset:v ultrafast -tune:v zerolatency -s {} -r {} -threads {} -y {}'.format(
             self.deal_with_device_name(self.screen_name),
             self.deal_with_device_name(self.system_voice_device_name),
             self.video_codec,
-            self.resolution,
+            '1024x768', #屏幕录制分辨率固定
             self.brate,
+            self.threads,
             self.get_file_name()
             )
             self.record(record_cmd, self.start_ffmpeg)    
-
+    
+    def check_device(self):
+        #简单验证摄像头设置是否为空
+        ready = True
+        l_msg = ''
+        if not self.camera_name:
+            ready = False
+            l_msg += '摄像头设备为空\n'
+        
+        if not self.voice_device_name:
+            ready = False
+            l_msg += '麦克风设备为空\n'
+           
+        if not self.screen_name:
+            ready = False
+            l_msg += '屏幕录制驱动为空\n'
+        
+        if not self.system_voice_device_name:
+            ready = False
+            l_msg += '系统声音录制驱动为空\n'
+        
+        if ready:
+            l_msg = '设备检测正常'
+        print(l_msg)
+        self.logger.info(l_msg)
+        return ready
+         
             
     def debug_camera(self):
         try:
@@ -252,14 +261,18 @@ class RecordVideo():
         return device_name
         
     def get_file_name(self):
-        time_str=datetime.now().strftime('%Y%m%d_%H%M%S')
-        video_type = ''
+        date_dir = datetime.now().strftime('%Y-%m-%d')
+        time_str = datetime.now().strftime('%H_%M')
+        video_type_name = ''
         if self.record_type == RecordType.Camera:
-            video_type = '摄像头'
+            video_type_name = '摄像头'
         if self.record_type == RecordType.Screen:
-            video_type = '屏幕'
+            video_type_name = '屏幕'
         
-        file_name = os.path.join(self.file_dir, '{}_{}{}'.format(video_type, time_str, self.file_suffix))
+        today_file_dir = os.path.join(self.file_dir, date_dir)
+        if not os.path.exists(today_file_dir):
+            os.mkdir(today_file_dir)
+        file_name = os.path.join(today_file_dir, '{}-{}-{}{}'.format(video_type_name, time_str, self.resolution, self.file_suffix))
         print('recording file name: %s' % file_name)
         return file_name
         

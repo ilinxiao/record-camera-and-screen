@@ -2,10 +2,22 @@ import re
 import RunCMD
 from RunCMD import run_cmd
 import cchardet
+import logging
 
 class DevicesInfo():
 
     def __init__(self):
+        
+         #日志
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(level = logging.INFO)
+        handler = logging.FileHandler('log.txt')
+        handler.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        
+        self.logger.addHandler(handler)
+        
         list_devices_cmd = 'ffmpeg -list_devices true -f dshow -i dummy'
         # status, output = subprocess.getstatusoutput(list_devices_cmd)
         output_err, output_str = run_cmd(list_devices_cmd, universal_newlines = False)
@@ -33,11 +45,15 @@ class DevicesInfo():
         device_line = []
         devices_output_copy = devices_output[0:]
         devices_txt = ''
+        self.logger.info('devices_text:')
         for txt in devices_output_copy:
             # charset = cchardet.detect(txt)
             # if charset            
-            devices_txt += txt.decode('utf-8','ignore').replace(r'\r\n','')
+            self.logger.info(txt)
+            devices_txt += txt.decode('utf-8').replace(r'\r\n','')
         # print(dir(re))
+        self.logger.info('decode result:')
+        self.logger.info(devices_txt)
         print(devices_txt)
         results = re.findall(r'\[[^\]]+\]([^\[]+)',devices_txt)
         # results.pop(0)

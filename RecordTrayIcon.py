@@ -73,9 +73,18 @@ class RecordTrayIcon(QSystemTrayIcon):
     def iconClicked(self, reason):
         #"鼠标点击icon传递的信号会带有一个整形的值，1是表示单击右键，2是双击，3是单击左键，4是用鼠标中键点击"
         if reason == 2 or reason == 3:
+            print('clicked.')
             pw = self.parent()
-            if pw.isVisible() and pw.isActiveWindow():
-                pw.hide()
+            # print('trayicon is activateWindow?:%s' % self.isActiveWindow())
+            if pw.isVisible(): #and pw.isActiveWindow()
+                # print('pw is active?%s' % pw.isActiveWindow())
+                if not pw.isActiveWindow():
+                    pw.activateWindow()
+                    # pw.raise_()
+                else:
+                    pw.hide()
+                # pw.hide()
+                pass
             else:
                 pw.show()
                 # pw.raise_()

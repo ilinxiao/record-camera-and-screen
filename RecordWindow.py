@@ -25,6 +25,7 @@ class RecordWindow(QtWidgets.QWidget):
         self.load_modules()
         #更新设置
         self.need_update_config = False
+        self.need_hide = True
         #初始化状态
         print('初始化状态...')
         self.update_state()
@@ -41,7 +42,7 @@ class RecordWindow(QtWidgets.QWidget):
         self.rc = RecordConfig()
         
         self.file_dir = self.rc.config.get('record','file_dir')
-        self.debugCameraAction.triggered.connect(self.rv.debug_camera)
+        # self.debugCameraAction.triggered.connect(self.rv.debug_camera)
         
     def closeEvent(self, event):
         # print('close window.')
@@ -72,7 +73,8 @@ class RecordWindow(QtWidgets.QWidget):
             # question.setDefaultButton(QMessageBox.No)
             # ret = question.exec()
             # if ret == QMessageBox.Yes:
-                # print('软件将退出.')
+        
+        print('软件将退出.')
         QCoreApplication.instance().quit()
                 
         # event.ignore()
@@ -86,6 +88,7 @@ class RecordWindow(QtWidgets.QWidget):
         self.pushButton = QtWidgets.QPushButton(self)
         self.pushButton.setGeometry(QtCore.QRect(0, 30, 91, 51))
         self.pushButton.setObjectName("pushButton")
+        # self.register_slot(self.pushButton.clicked, self.record)
         # self.pushButton.mousePressEvent.connect(self.mousePressEvent)
         # print(dir(self.pushButton))
         
@@ -183,12 +186,12 @@ class RecordWindow(QtWidgets.QWidget):
         self.openFileDirAction = self.contextMenu.addAction('打开文件目录')
         self.openFileDirAction.triggered.connect(self.open_file_dir)
         #调试摄像头
-        self.debugCameraAction = self.contextMenu.addAction('调试摄像头')
-        self.debugCameraAction.setVisible(False)
+        # self.debugCameraAction = self.contextMenu.addAction('调试摄像头')
+        # self.debugCameraAction.setVisible(False)
         #设置
         self.settingAction=self.contextMenu.addAction('设置')    
         self.sw = SettingWindow()
-        self.settingAction.triggered.connect(self.sw.showSettingWindow)  
+        self.settingAction.triggered.connect(self.show_setting)  
         #帮助
         self.aboutAction=self.contextMenu.addAction('帮助')    
         self.rh = RecordHelp()
@@ -223,7 +226,7 @@ class RecordWindow(QtWidgets.QWidget):
         event_obj.connect(new_action)
         
     def update_state(self):
-    
+        
         if self.recording:
             print('录制状态：录制中.')
             
@@ -315,8 +318,9 @@ class RecordWindow(QtWidgets.QWidget):
             self.start_timer()
             self.update_state()
         else:
-        
+            self.need_hide = False
             question = QMessageBox.information(self, '提示', '检测到录制设备缺失，无法进行录制，请先完善设备设置。', QMessageBox.Yes)
+            # self.need_hide = True
             # question = QMessageBox()
             # question.setText('检测到录制设备缺失，无法进行录制，请先完善设备设置。')
             # question.setWindowTitle('提示')
@@ -327,6 +331,10 @@ class RecordWindow(QtWidgets.QWidget):
             # ret = question.exec()
             # if ret == QMessageBox.Yes:
                 # print('软件将退出.')
+                
+    def show_setting(self):
+        self.need_hide = False
+        self.sw.showSettingWindow()
 
     ''''
         鼠标拖动窗体
@@ -394,16 +402,38 @@ class RecordWindow(QtWidgets.QWidget):
         窗体事件
     '''
     def eventFilter(self, obj, event):
-        # print('e type: %s' % event.type())
+        
+        etype=event.type()
+        # print('e type: %s' % etype)
+        # print('obj is window? %s' % (isinstance(obj,RecordWindow)))
         # print('deactivate type id :%d' % QEvent.WindowDeactivate)
-        if event.type() == QEvent.WindowDeactivate:
-            # print('丢失焦点')
-            self.setVisible(False)
+        if etype == QEvent.WindowDeactivate:
+            print('丢失焦点')
+            #代码功能：当窗口失去焦点（不是键盘事件的焦点），窗体隐藏。
+            #引起的问题：当关闭从此窗口弹出的提示框和子窗口时，此窗口异常退出。
+            #原因分析：提示框和子窗口在弹出时，引发WindowDeactivate事件主窗口同时隐藏，
+            #当提示框和子窗口关闭时，因为父窗口已隐藏子窗口似乎是找不到父窗口，或者猜测是误以为父窗口不存在，然后整个应用随即退出。
+            #解决方案1（先用）：用变量need_hide(bool)来控制是否需要隐藏窗体，need_hide=True才隐藏窗体。在打开子窗口和弹出提示窗之前将need_hide=False。
+            #缺陷：快捷键操作仍然会有同样的问题，因为窗体大多时候是隐藏的。（考虑：把快捷键监控放在托盘图标上？）
+            #更好的解决方案：1.为什么当父窗口是隐藏状态，子窗口关闭，整个应用也随之退出？(关键)
+            #2.对窗体事件有更准确的了解，换一种更好的方式来实现窗体失去焦点隐藏主窗体。
+            #最终解决方案：1.设置QApplication.setQuitOnLastWindowClosed(False) 
+            #2显示逻辑：由此处和RecordTrayIcon.actived事件分别控制，此处负责隐藏；RecordTrayIcon根据此窗体隐藏状态做判断：如果隐藏则显示（即单击或双击显示），
+            #如果非隐藏但不是activeWindow，则设置activeWindow=True，否则隐藏。
             
+            self.setVisible(False)
+            # if self.need_hide:
+                # self.setVisible(False)
+                # pass
+            # else:
+                # self.need_hide = True
+      
         return False
         
 if __name__ == '__main__':  
     app = QtWidgets.QApplication(sys.argv)
+    #当这个属性为True，应用程序会在最后一个可见窗口关闭时退出。
+    app.setQuitOnLastWindowClosed(False)
     rw = RecordWindow()    
     rw.monitor_shortcut()
     rw.rti.show()

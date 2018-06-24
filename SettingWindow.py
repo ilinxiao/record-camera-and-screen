@@ -7,19 +7,25 @@ from DevicesInfo import *
 import RecordConfig
 from RecordConfig import *
 from PyQt5.QtWidgets import QMessageBox
+import resource
+import psutil
 
 class SettingWindow(QDialog):
     
+    
+    update_setting = pyqtSignal(bool)
     def __init__(self, parent = None):
         super(SettingWindow,self).__init__(parent)
+        
+        self.changed = False
         self.setupUi()
         self.load()
 
     def setupUi(self):
         self.setObjectName("SettingWindow")
-        self.resize(386, 238)
+        self.setFixedSize(383, 280)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("resource/gutin.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/resource/gutin.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
         self.tabWidget = QtWidgets.QTabWidget(self)
         self.tabWidget.setGeometry(QtCore.QRect(10, 10, 371, 221))
@@ -108,11 +114,12 @@ class SettingWindow(QDialog):
         self.tab_record = QtWidgets.QWidget()
         self.tab_record.setObjectName("tab_record")
         self.gridLayoutWidget = QtWidgets.QWidget(self.tab_record)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 321, 161))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 311, 161))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setHorizontalSpacing(0)
+        self.gridLayout.setVerticalSpacing(16)
         self.gridLayout.setObjectName("gridLayout")
         self.label_14 = QtWidgets.QLabel(self.gridLayoutWidget)
         self.label_14.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -166,6 +173,28 @@ class SettingWindow(QDialog):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
+        
+        self.threads_label = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.threads_label.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.threads_label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.threads_label.setObjectName("threads_label")
+        self.gridLayout.addWidget(self.threads_label, 5, 0, 1, 1)
+        self.threads_spinBox = QtWidgets.QSpinBox(self.gridLayoutWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.threads_spinBox.sizePolicy().hasHeightForWidth())
+        self.threads_spinBox.setSizePolicy(sizePolicy)
+        self.threads_spinBox.setObjectName("record.threads")
+        self.gridLayout.addWidget(self.threads_spinBox, 5, 1, 1, 1)
+        self.tabWidget.addTab(self.tab_record, "")
+        
+        self.save_button = QtWidgets.QPushButton(self)
+        self.save_button.setGeometry(QtCore.QRect(180, 240, 75, 23))
+        self.save_button.setObjectName("save_button")
+        self.cancel_button = QtWidgets.QPushButton(self)
+        self.cancel_button.setGeometry(QtCore.QRect(270, 240, 75, 23))
+        self.cancel_button.setObjectName("cancel_button")
 
         self.retranslateUi()
         self.tabWidget.setCurrentIndex(0)
@@ -188,13 +217,13 @@ class SettingWindow(QDialog):
         self.label_13.setText(_translate("Form", "文件保存目录："))
         self.label_12.setText(_translate("Form", "分辨率："))
         self.btn_file_dir.setText(_translate("Form", "选择文件目录"))
+        self.threads_label.setText(_translate("Form", "CPU线程："))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_record), _translate("Form", "录制参数"))
+        self.save_button.setText(_translate("Form", "保存"))
+        self.cancel_button.setText(_translate("Form", "取消"))
         
-   
-   
-    # def set_combobox_select_index_by_name_or_data(self, combobox, name_or_data):
-        # for i in range(len()
     def load_combobox_data(self, combox, data):
+        #下拉列表数据加载
         for obj in data:
             name = obj[0]
             value = name 
@@ -205,13 +234,56 @@ class SettingWindow(QDialog):
     def get_key_group_name(self, key_tuple):
         return key_tuple.replace(r'(','').replace(r')','')
      
+    def load_config(self):
+        '''
+            加载设置         
+        '''  
+        #设备
+        video_device_name = self.rc.config.get('devices','camera_device_name')
+        voice_device_name = self.rc.config.get('devices','voice_device_name')
+        screen_device_name = self.rc.config.get('devices','screen_device_name')
+        system_voice_device_name = self.rc.config.get('devices','system_voice_device_name')
         
+        # self.cb_camera_devices.setCurrentIndex(1)
+        video_cur_index = self.cb_camera_devices.findData(video_device_name)
+        # print('video name:\n%s\ndevice index:%d' % (video_device_name, video_cur_index))
+        self.cb_camera_devices.setCurrentIndex(video_cur_index)
+        
+        self.cb_voice_devices.setCurrentIndex(self.cb_voice_devices.findData(voice_device_name))
+        self.cb_screen_devices.setCurrentIndex(self.cb_screen_devices.findData(screen_device_name))
+        self.cb_system_voice_devices.setCurrentIndex(self.cb_system_voice_devices.findData(system_voice_device_name))
+        
+        #快捷键
+        record_camera_key_group = self.rc.config.get('shortcut','camera')
+        record_screen_key_group = self.rc.config.get('shortcut','screen')
+        record_stop_key_group = self.rc.config.get('shortcut','stop')
+        
+        record_camera_key_group_name = self.get_key_group_name(record_camera_key_group)
+        record_screen_key_group_name = self.get_key_group_name(record_screen_key_group)
+        record_stop_key_group_name = self.get_key_group_name(record_stop_key_group)
+        
+        self.le_start_record_camera_shortcut.setText(record_camera_key_group_name)
+        self.le_start_record_screen_shortcut.setText(record_screen_key_group_name)
+        self.le_start_stop_exit_shortcut.setText(record_stop_key_group_name)
+        
+        #录制参数
+        record_resolution = self.rc.config.get('record','resolution')
+        record_vcodec = self.rc.config.get('record','vcodec')
+        record_frame_rate = self.rc.config.getfloat('record','frame_rate')
+        record_file_dir = self.rc.config.get('record','file_dir')
+        record_file_dir = os.path.abspath(record_file_dir)
+        record_threads = int(self.rc.config.get('record','threads'))
+        
+        self.cb_resolution.setCurrentIndex(self.cb_resolution.findData(record_resolution))
+        self.cb_vcodec.setCurrentIndex(self.cb_vcodec.findData(record_vcodec))
+        self.dsb_frame_rate.setValue(record_frame_rate)
+        self.le_file_path.setText(record_file_dir)
+        
+        self.threads_spinBox.setValue(record_threads)
+     
     def load(self):
-    
         
-        rc = RecordConfig()
-        self.rc = rc
-        self.changed = False
+        self.rc = RecordConfig()
         '''
             数据初始化
         '''
@@ -237,75 +309,38 @@ class SettingWindow(QDialog):
         self.load_combobox_data(self.cb_resolution, resolutions)
         self.load_combobox_data(self.cb_vcodec, vcodec)
         
+        self.dsb_frame_rate.setDecimals(1)
+        cpu_count = psutil.cpu_count(logical=True)
+        self.threads_spinBox.setMaximum(cpu_count)
+        
         # print(self.cb_camera_devices.currentData())
         # print('视频设备列表:')
         # print(di.video_devices)
         # print('音频设备列表:')
         # print(di.voice_devices)
         
-        '''
-            加载设置         
-        '''  
-        #设备
-        video_device_name = rc.config.get('devices','camera_device_name')
-        voice_device_name = rc.config.get('devices','voice_device_name')
-        screen_device_name = rc.config.get('devices','screen_device_name')
-        system_voice_device_name = rc.config.get('devices','system_voice_device_name')
-        
-        # self.cb_camera_devices.setCurrentIndex(1)
-        video_cur_index = self.cb_camera_devices.findData(video_device_name)
-        # print('video name:\n%s\ndevice index:%d' % (video_device_name, video_cur_index))
-        self.cb_camera_devices.setCurrentIndex(video_cur_index)
-        
-        self.cb_voice_devices.setCurrentIndex(self.cb_voice_devices.findData(voice_device_name))
-        self.cb_screen_devices.setCurrentIndex(self.cb_screen_devices.findData(screen_device_name))
-        self.cb_system_voice_devices.setCurrentIndex(self.cb_system_voice_devices.findData(system_voice_device_name))
-        
-        #快捷键
-        record_camera_key_group = rc.config.get('shortcut','camera')
-        record_screen_key_group = rc.config.get('shortcut','screen')
-        record_stop_key_group = rc.config.get('shortcut','stop')
-        
-        record_camera_key_group_name = self.get_key_group_name(record_camera_key_group)
-        record_screen_key_group_name = self.get_key_group_name(record_screen_key_group)
-        record_stop_key_group_name = self.get_key_group_name(record_stop_key_group)
-        
-        self.le_start_record_camera_shortcut.setText(record_camera_key_group_name)
-        self.le_start_record_screen_shortcut.setText(record_screen_key_group_name)
-        self.le_start_stop_exit_shortcut.setText(record_stop_key_group_name)
-        
-        #录制参数
-        record_resolution = self.rc.config.get('record','resolution')
-        record_vcodec = self.rc.config.get('record','vcodec')
-        record_frame_rate = self.rc.config.getfloat('record','frame_rate')
-        record_file_dir = self.rc.config.get('record','file_dir')
-        record_file_dir = os.path.abspath(record_file_dir)
-        
-        self.cb_resolution.setCurrentIndex(self.cb_resolution.findData(record_resolution))
-        self.cb_vcodec.setCurrentIndex(self.cb_vcodec.findData(record_vcodec))
-        self.dsb_frame_rate.setDecimals(1)
-        self.dsb_frame_rate.setValue(record_frame_rate)
-        self.le_file_path.setText(record_file_dir)
+        self.load_config()
         
         '''
             关联事件
         '''
         #设备
-        self.cb_camera_devices.currentIndexChanged.connect(lambda: self.indexChangedEvent(self, self.cb_camera_devices))
-        self.cb_voice_devices.currentIndexChanged.connect(lambda: self.indexChangedEvent(self, self.cb_voice_devices))
-        self.cb_screen_devices.currentIndexChanged.connect(lambda: self.indexChangedEvent(self, self.cb_screen_devices))
-        self.cb_system_voice_devices.currentIndexChanged.connect(lambda: self.indexChangedEvent(self, self.cb_system_voice_devices))
+        self.cb_camera_devices.currentIndexChanged.connect(self.stateChangedEvent)
+        self.cb_voice_devices.currentIndexChanged.connect(self.stateChangedEvent)
+        self.cb_screen_devices.currentIndexChanged.connect(self.stateChangedEvent)
+        self.cb_system_voice_devices.currentIndexChanged.connect(self.stateChangedEvent)
         
         #快捷键
-        self.le_start_record_camera_shortcut.textChanged.connect(lambda: self.textChangedEvent(self.le_start_record_camera_shortcut))
-        self.le_start_record_screen_shortcut.textChanged.connect(lambda: self.textChangedEvent(self.le_start_record_screen_shortcut))
-        self.le_start_stop_exit_shortcut.textChanged.connect(lambda: self.textChangedEvent(self.le_start_stop_exit_shortcut))
+        self.le_start_record_camera_shortcut.textChanged.connect(self.stateChangedEvent)
+        self.le_start_record_screen_shortcut.textChanged.connect(self.stateChangedEvent)
+        self.le_start_stop_exit_shortcut.textChanged.connect(self.stateChangedEvent)
         
         #录制参数
-        self.cb_resolution.currentIndexChanged.connect(lambda: self.indexChangedEvent(self, self.cb_resolution))
-        self.cb_vcodec.currentIndexChanged.connect(lambda: self.indexChangedEvent(self, self.cb_vcodec))
-        self.dsb_frame_rate.valueChanged.connect(self.valueChangedEvent)
-        self.le_file_path.textChanged.connect(lambda: self.textChangedEvent(self.le_file_path))
+        self.cb_resolution.currentIndexChanged.connect(self.stateChangedEvent)
+        self.cb_vcodec.currentIndexChanged.connect(self.stateChangedEvent)
+        self.dsb_frame_rate.valueChanged.connect(self.stateChangedEvent)
+        self.le_file_path.textChanged.connect(self.stateChangedEvent)
+        self.threads_spinBox.valueChanged.connect(self.stateChangedEvent)
             
         # self.le_start_record_camera_shortcut.keyPressEvent = self.record_keypress
         # print(dir(self.le_start_record_camera_shortcut.keyPressEvent))
@@ -313,6 +348,10 @@ class SettingWindow(QDialog):
         
         # self.le_file_path.setText()
         self.btn_file_dir.clicked.connect(self.file_dir_select)
+        self.save_button.clicked.connect(self.save_setting)
+        self.cancel_button.clicked.connect(self.cancel)
+        
+        self.update_state()
         
     
     def record_keypress(self, event):
@@ -323,8 +362,11 @@ class SettingWindow(QDialog):
         
     def file_dir_select(self, event):
         current_dir = self.le_file_path.text()
-        if os.path.exists(current_dir):
-            selected_dir = QFileDialog.getExistingDirectory(self, '选择录像保存目录', current_dir, QFileDialog.ShowDirsOnly)
+        # print('current dir:%s' % current_dir)
+        if not os.path.exists(current_dir):
+            current_dir = os.path.abspath('.')
+        selected_dir = QFileDialog.getExistingDirectory(self, '选择录像保存目录', current_dir, QFileDialog.ShowDirsOnly)
+        if selected_dir and os.path.exists(selected_dir):
             self.le_file_path.setText(selected_dir)
         
     def showSettingWindow(self):
@@ -346,12 +388,70 @@ class SettingWindow(QDialog):
             print('parent is None?%s' % (self.parent is None))
             self.changed = False
             
-        self.setVisible(False)
-        event.ignore()
+        # self.setVisible(False)
+        # event.ignore()
     
     def save_setting(self):
+        
+        
+        #获取改动值
+        #设备
+        camera_device_name = self.cb_camera_devices.currentData()
+        voice_device_name = self.cb_voice_devices.currentData()
+        screen_device_name = self.cb_screen_devices.currentData()
+        system_voice_device_name = self.cb_system_voice_devices.currentData()
+        # print(camera_device_name)
+        
+        #快捷键
+        record_camera_key_group_name = '(' +self.le_start_record_camera_shortcut.text()+ ')'
+        record_screen_key_group_name = '(' +self.le_start_record_screen_shortcut.text()+ ')'
+        record_stop_key_group_name = '(' +self.le_start_stop_exit_shortcut.text()+ ')'
+        # print(record_camera_key_group_name)
+        
+        #录制
+        resolution = self.cb_resolution.currentData()
+        video_codec = self.cb_vcodec.currentData()
+        frame_rate = self.dsb_frame_rate.value()
+        file_dir = self.le_file_path.text()
+        threads = self.threads_spinBox.value()
+        # print(threads)
+        
+        #保存
+        conf = self.rc.config
+        
+        devices_section_name = 'devices'    
+        conf.set(devices_section_name,'camera_device_name', camera_device_name)
+        conf.set(devices_section_name,'voice_device_name', voice_device_name)
+        conf.set(devices_section_name,'screen_device_name', screen_device_name)
+        conf.set(devices_section_name,'system_voice_device_name', system_voice_device_name)
+        
+        shortcut_section_name = 'shortcut'
+        conf.set(shortcut_section_name,'camera', record_camera_key_group_name)
+        conf.set(shortcut_section_name,'screen', record_screen_key_group_name)
+        conf.set(shortcut_section_name,'stop', record_stop_key_group_name)
+        
+        record_section_name = 'record'
+        conf.set(record_section_name,'resolution', resolution)
+        conf.set(record_section_name,'vcodec', video_codec)
+        conf.set(record_section_name,'frame_rate', str(frame_rate))
+        conf.set(record_section_name,'file_dir', file_dir)
+        conf.set(record_section_name,'threads', str(threads))
+        
         self.rc.write()
+        self.update_setting.emit(self.changed)
+        self.changed = False
+        self.update_state()
     
+    def update_state(self):
+    
+        self.save_button.setDisabled(not self.changed)
+        self.cancel_button.setDisabled(not self.changed)
+        
+    def cancel(self):
+        self.load_config()
+        self.changed=False
+        self.update_state()
+        
     def setting(self, obj_name, value):
         
         section = ''
@@ -374,32 +474,47 @@ class SettingWindow(QDialog):
             pass
             print('not found this section or name.')
         
-    def indexChangedEvent(self, index, obj):
+    # def indexChangedEvent(self, index, obj):
         
         # print('in data changed event.')
-        print(index)
-        print('event obj:%s' % type(obj))
-        print('obj name:%s' % obj.objectName())
+        # print(index)
+        # print('event obj:%s' % type(obj))
+        # print('obj name:%s' % obj.objectName())
         
-        value = obj.currentData()
-        obj_name = obj.objectName()
-        self.setting(obj_name, value)
+        # value = obj.currentData()
+        # obj_name = obj.objectName()
+        # self.setting(obj_name, value)
+    def stateChangedEvent(self, new_value):
+        print('changed value is :%s' % new_value)
+        self.changed = True
+        self.update_state()
         
-    def textChangedEvent(self, obj):
+    # def textChangedEvent(self, obj):
     
         # print('type of self:%s' % type(self))
         # print('type of text:%s' % type(text))
         # print('type of obj:%s' % type(obj))
-        value = obj.text()
-        obj_name = obj.objectName()
-        self.setting(obj_name, value)
+        # value = obj.text()
+        # obj_name = obj.objectName()
+        # self.setting(obj_name, value)
         
-    def valueChangedEvent(self):
-        print('in value changed event.')
-        obj = self.dsb_frame_rate
-        value = obj.value()
-        print('value:%1.f' % value)
-        obj_name = obj.objectName()
-        self.setting(obj_name, str(value))
+    # def valueChangedEvent(self, new_value):
+        # print('changed  value is :%s.' % new_value)
+        
+        # self.changed = True
+        # self.update_state()
+        # obj = self.dsb_frame_rate
+        # value = obj.value()
+        # print('value:%1.f' % value)
+        # obj_name = obj.objectName()
+        # self.setting(obj_name, str(value))
+        
+    # def valueChangedEvent_spinBox(self):
+        # print('in value changed event.')
+        # obj = self.threads_spinBox
+        # value = obj.value()
+        # print('value:%1.f' % value)
+        # obj_name = obj.objectName()
+        # self.setting(obj_name, str(value))
         
 

@@ -45,7 +45,7 @@ class RecordConfig():
         
         conf.add_section('author')
         conf.set('author', 'name', 'linxiao')
-        conf.set('author', 'mail', '940950943@qq.com')
+        conf.set('author', 'mail', '940950943@qqqqqqqqqqqqqqqqqqqqqqqqqqqq.com')
         
         self.config = conf
         self.write()

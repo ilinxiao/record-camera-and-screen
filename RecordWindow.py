@@ -25,7 +25,7 @@ class RecordWindow(QtWidgets.QWidget):
         self.load_modules()
         #更新设置
         self.need_update_config = False
-        self.need_hide = True
+        # self.need_hide = True
         #初始化状态
         print('初始化状态...')
         self.update_state()
@@ -48,8 +48,9 @@ class RecordWindow(QtWidgets.QWidget):
         # print('close window.')
         # self.close_signal.emit()
         # self.close()
-        # if self.recording:
-        
+        if self.recording:
+            
+            self.stop_record(force = True)
             # question = QMessageBox(self)
             # question.setText('系统正在录制中，确定要退出吗？')
             # question.setWindowTitle('提示')
@@ -275,7 +276,10 @@ class RecordWindow(QtWidgets.QWidget):
         self.rti.update_state(self.recording, self.record_type)
     
     def stop_record(self, force = False):
-    
+        #force应用在两种情况：
+        #1.timer实时刷新ffmpeg进程状态，当出现异常退时force=true,即force=exception_exit。
+        #2.应用退出时
+        
         if self.recording or force:
             self.stop_timer()    
             
@@ -318,23 +322,37 @@ class RecordWindow(QtWidgets.QWidget):
             self.start_timer()
             self.update_state()
         else:
-            self.need_hide = False
-            question = QMessageBox.information(self, '提示', '检测到录制设备缺失，无法进行录制，请先完善设备设置。', QMessageBox.Yes)
+            # self.need_hide = False
+            # question = QMessageBox.information(self, '提示', '检测到录制设备缺失，无法进行录制，请先完善设备设置。', QMessageBox.Yes)
             # self.need_hide = True
-            # question = QMessageBox()
-            # question.setText('检测到录制设备缺失，无法进行录制，请先完善设备设置。')
-            # question.setWindowTitle('提示')
-            # question.setIcon(QMessageBox.Question)
-            # question.addButton(QMessageBox.Yes)
+            question = QMessageBox()
+            question.setText('检测到录制设备缺失，无法进行录制，请先完善设备设置。')
+            question.setWindowTitle('提示')
+            question.setIcon(QMessageBox.Question)
+            question.addButton(QMessageBox.Yes)
+            tmp_btn = question.button(QMessageBox.Yes)
+            tmp_btn.setText('确定')
+            
+            question.adjustSize()
+            screen_center = QApplication.desktop().screenGeometry()
+            question.move(((screen_center.width() - question.width()) /2), ((screen_center.height() - question.height())/2))
+            
             # question.addButton(QMessageBox.No)
             # question.setDefaultButton(QMessageBox.No)
-            # ret = question.exec()
+            ret = question.exec()
             # if ret == QMessageBox.Yes:
                 # print('软件将退出.')
                 
     def show_setting(self):
-        self.need_hide = False
+        # QWidget.connect(self.sw, update_setting(bool), self, self.update_setting(bool))
+        self.sw.update_setting.connect(self.update_setting)
         self.sw.showSettingWindow()
+        
+    def update_setting(self, changed):
+        if changed:
+            print('update setting..')
+            self.rv.load_config()
+    
 
     ''''
         鼠标拖动窗体
@@ -376,27 +394,55 @@ class RecordWindow(QtWidgets.QWidget):
     
     def monitor_shortcut(self):
         
-        sc = Shortcut()
+        if self.rv.check_run_state():
         
-        camera_key_group = self.rc.config.get('shortcut','camera')
-        screen_key_group = self.rc.config.get('shortcut','screen')
-        stop_record_key_group = self.rc.config.get('shortcut','stop')
-        
-        camera_shortcut = [int(key) for key in camera_key_group.split(',')]
-        screen_shortcut = [int(key) for key in screen_key_group.split(',')]
-        stop_shortcut = [int(key) for key in stop_record_key_group.split(',')]
-        
-        print('camera shortcut: %s' % camera_shortcut)
-        print('screen shortcut: %s' % screen_shortcut)
-        print('stop shortcut: %s' % stop_shortcut)
-        
-        if camera_key_group:
-            sc.add(1, camera_shortcut, lambda: self.record(RecordType.Camera))
-        if screen_key_group:
-            sc.add(2, screen_shortcut, lambda: self.record(RecordType.Screen))
-        if stop_record_key_group:
-            sc.add(3, stop_shortcut, self.stop_record)
-        sc.monitor()
+            sc = Shortcut()
+            
+            camera_key_group = self.rc.config.get('shortcut','camera')
+            screen_key_group = self.rc.config.get('shortcut','screen')
+            stop_record_key_group = self.rc.config.get('shortcut','stop')
+            
+            camera_shortcut = [int(key) for key in camera_key_group.split(',')]
+            screen_shortcut = [int(key) for key in screen_key_group.split(',')]
+            stop_shortcut = [int(key) for key in stop_record_key_group.split(',')]
+            
+            print('camera shortcut: %s' % camera_shortcut)
+            print('screen shortcut: %s' % screen_shortcut)
+            print('stop shortcut: %s' % stop_shortcut)
+            
+            if camera_key_group:
+                sc.add(1, camera_shortcut, lambda: self.record(RecordType.Camera))
+            if screen_key_group:
+                sc.add(2, screen_shortcut, lambda: self.record(RecordType.Screen))
+            if stop_record_key_group:
+                sc.add(3, stop_shortcut, self.stop_record)
+                
+            
+            sc.monitor()
+            
+        else:
+            question = QMessageBox(self)
+            question.setText('检测到软件非正常运行，以下功能将被禁用（如有疑问，请联系开发商）：<br/><ul><li>快捷键</li></ul>')
+            question.setWindowTitle('限制使用模式')
+            question.setIcon(QMessageBox.Warning)
+            question.addButton(QMessageBox.Yes)
+            # question.setButtonText(QMessageBox.Yes, QString('确定'))
+            btn = question.button(QMessageBox.Yes)
+            # print(btn.text())
+            btn.setText('确定')
+            # question.addButton('确定', QMessageBox.ButtonRole.AcceptRole)
+            
+            # print('screen x:%d,y:%d; question x:%d,y:%d.' % (screen_center.x(), screen_center.y(), question.x(), question.y()))
+            # print(question.frameGeometry())
+            question.adjustSize()
+            screen_center = QApplication.desktop().screenGeometry()
+            #居中x和y的值计算与我想的不一样
+            #原因：question在exec之前无法准确的获取其size。(485,170)是exec之后的实际size。
+            question.move(((screen_center.width() - 485)/2), ((screen_center.height() - 170)/2))
+            # question.move((screen_center.width() / 2 - question.width()), (screen_center.height() /2 - question.height()))
+            # print('screen x:%d,y:%d; question x:%d,y:%d; question width:%d,height:%d.' % (screen_center.width(), screen_center.height(), question.geometry().width(), question.geometry().height(), question.width(), question.height()))
+            # question.move(QApplication.desktop().screenGeometry().center()- self.rect().center())
+            ret = question.exec()
         
     '''
         窗体事件

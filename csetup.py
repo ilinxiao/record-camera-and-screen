@@ -2,7 +2,7 @@ import sys
 from cx_Freeze import setup, Executable
 
 # Dependencies are automatically detected, but it might need fine tuning.
-build_exe_options = { 'include_files':['resource','ffmpeg-shared'], 'build_exe' : 'd:/dev/record/record-win'}
+build_exe_options = { 'include_files':['ffmpeg-shared'], 'build_exe' : 'd:/dev/record/record-win'}
 install_exe_options = { 'install_dir' : 'd:/dev/record/record-win', 'build_dir':'build', 'install_exe':'d:\\record-camera-and-screen'}
 
 # GUI applications require a different base on Windows (the default is for a

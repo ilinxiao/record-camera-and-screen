@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import RecordType
 from RecordType import *
+import resource
 
 class RecordTrayIcon(QSystemTrayIcon):
     def __init__(self, parent=None):
@@ -56,17 +57,21 @@ class RecordTrayIcon(QSystemTrayIcon):
         
         if recording:
             if record_type == RecordType.Camera:
-                self.setIcon(self.get_icon('camera_recording_colorful.png'))
+                # self.setIcon(self.get_icon('camera_recording_colorful.png'))
+                self.setIcon(QIcon(':/resource/camera_recording_colorful.png'))
                 self.setToolTip('正在录制摄像头...')
                 
             elif record_type == RecordType.Screen:
-                self.setIcon(self.get_icon('screen_recording.png'))
+                # self.setIcon(self.get_icon('screen_recording.png'))
+                self.setIcon(QIcon(':/resource/screen_recording.png'))
                 self.setToolTip('正在录制屏幕...')
             else:
-                self.setIcon(self.get_icon('stop.png'))
+                # self.setIcon(self.get_icon('stop.png'))
+                # self.setIcon(QIcon(':/resource/stop.png'))
                 self.setToolTip('软件缩小在这里.')
         else:
-            self.setIcon(self.get_icon('start.png'))
+            # self.setIcon(self.get_icon('start.png'))
+            self.setIcon(QIcon(':/resource/start.png'))
             self.setToolTip('软件缩小在这里.')
             
         

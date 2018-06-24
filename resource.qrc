@@ -1,0 +1,11 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+    <file>resource/gutin.jpg</file>
+    <file>resource/gutin.ico</file>
+    <file>resource/start.png</file>
+    <file>resource/camera_recording_colorful.png</file>
+    <file>resource/screen_recording.png</file>  
+    
+</qresource>
+</RCC>

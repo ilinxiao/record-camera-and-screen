@@ -22,6 +22,10 @@ class Shortcut():
         
         HOTKEYS[key_group_id] = key_group
         ACTIONS[key_group_id] = action
+        
+    def clear(self):
+        HOTKEYS.clear()
+        ACTIONS.clear()
 
     def KeyDownEvent(self, event):
         global KEY_STATUS

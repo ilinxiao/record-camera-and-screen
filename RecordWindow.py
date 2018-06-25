@@ -39,9 +39,12 @@ class RecordWindow(QtWidgets.QWidget):
         self.rti = RecordTrayIcon(self)
         self.rti.update_state(self.recording, self.record_type)
         
-        self.rc = RecordConfig()
         
-        self.file_dir = self.rc.config.get('record','file_dir')
+        self.sc = Shortcut()
+        
+        self.update_setting(True)
+        # self.rc = RecordConfig()     
+        # self.file_dir = self.rc.config.get('record','file_dir')
         # self.debugCameraAction.triggered.connect(self.rv.debug_camera)
         
     def closeEvent(self, event):
@@ -352,7 +355,11 @@ class RecordWindow(QtWidgets.QWidget):
         if changed:
             print('update setting..')
             self.rv.load_config()
+            
+            self.rc = RecordConfig()
+            self.load_shortcut()
     
+            self.file_dir = self.rc.config.get('record','file_dir')
 
     ''''
         鼠标拖动窗体
@@ -392,33 +399,37 @@ class RecordWindow(QtWidgets.QWidget):
         
     '''
     
+    def load_shortcut(self):
+        
+        self.sc.clear()
+        
+        camera_key_group = self.rc.config.get('shortcut','camera')
+        screen_key_group = self.rc.config.get('shortcut','screen')
+        stop_record_key_group = self.rc.config.get('shortcut','stop')
+        
+        camera_shortcut = [int(key) for key in camera_key_group.split(',')]
+        screen_shortcut = [int(key) for key in screen_key_group.split(',')]
+        stop_shortcut = [int(key) for key in stop_record_key_group.split(',')]
+        
+        print('camera shortcut: %s' % camera_shortcut)
+        print('screen shortcut: %s' % screen_shortcut)
+        print('stop shortcut: %s' % stop_shortcut)
+        
+        if camera_key_group:
+            self.sc.add(1, camera_shortcut, lambda: self.record(RecordType.Camera))
+        if screen_key_group:
+            self.sc.add(2, screen_shortcut, lambda: self.record(RecordType.Screen))
+        if stop_record_key_group:
+            self.sc.add(3, stop_shortcut, self.stop_record)
+                
+        
     def monitor_shortcut(self):
         
         if self.rv.check_run_state():
         
-            sc = Shortcut()
-            
-            camera_key_group = self.rc.config.get('shortcut','camera')
-            screen_key_group = self.rc.config.get('shortcut','screen')
-            stop_record_key_group = self.rc.config.get('shortcut','stop')
-            
-            camera_shortcut = [int(key) for key in camera_key_group.split(',')]
-            screen_shortcut = [int(key) for key in screen_key_group.split(',')]
-            stop_shortcut = [int(key) for key in stop_record_key_group.split(',')]
-            
-            print('camera shortcut: %s' % camera_shortcut)
-            print('screen shortcut: %s' % screen_shortcut)
-            print('stop shortcut: %s' % stop_shortcut)
-            
-            if camera_key_group:
-                sc.add(1, camera_shortcut, lambda: self.record(RecordType.Camera))
-            if screen_key_group:
-                sc.add(2, screen_shortcut, lambda: self.record(RecordType.Screen))
-            if stop_record_key_group:
-                sc.add(3, stop_shortcut, self.stop_record)
-                
-            
-            sc.monitor()
+            self.load_shortcut()
+ 
+            self.sc.monitor()
             
         else:
             question = QMessageBox(self)

@@ -403,9 +403,9 @@ class SettingWindow(QDialog):
         # print(camera_device_name)
         
         #快捷键
-        record_camera_key_group_name = '(' +self.le_start_record_camera_shortcut.text()+ ')'
-        record_screen_key_group_name = '(' +self.le_start_record_screen_shortcut.text()+ ')'
-        record_stop_key_group_name = '(' +self.le_start_stop_exit_shortcut.text()+ ')'
+        record_camera_key_group_name = self.le_start_record_camera_shortcut.text()
+        record_screen_key_group_name = self.le_start_record_screen_shortcut.text()
+        record_stop_key_group_name = self.le_start_stop_exit_shortcut.text()
         # print(record_camera_key_group_name)
         
         #录制
@@ -438,6 +438,7 @@ class SettingWindow(QDialog):
         conf.set(record_section_name,'threads', str(threads))
         
         self.rc.write()
+        #通知主窗口更新设置
         self.update_setting.emit(self.changed)
         self.changed = False
         self.update_state()

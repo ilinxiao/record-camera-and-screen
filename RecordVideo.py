@@ -299,11 +299,11 @@ class RecordVideo():
             print('first run_time:%s' % run_time)
             print('now:%s' % now.strftime(time_format))
             
-            # qual_days = 1 - (now - run_time_obj).days
+            qual_days = 91 - (now - run_time_obj).days
             # print('qualified days:%d' % (qual_days))
-            qual_hours = (now - run_time_obj).total_seconds() // 3600
-            # if qual_days > 0:
-            if 5 - qual_hours > 0:
+            # qual_hours = (now - run_time_obj).total_seconds() // 3600
+            if qual_days > 0:
+            # if 5 - qual_hours > 0:
                 qualified = True
          
         CloseKey(key)

@@ -54,5 +54,10 @@ Root: HKCU; Subkey: "SOFTWARE\Gutin\Record"; ValueType:string; ValueName: "Insta
 ;遇到的问题HKLM节点无法写入
 ;Root: HKCU; Subkey: "Software\My Company Test"; Flags: uninsdeletekeyifempty
 
+[UninstallDelete]
+Type: files; Name: "{app}\configByLinxiao.ini"
+Type: files; Name: "{app}\log.txt"
+
+
 
 

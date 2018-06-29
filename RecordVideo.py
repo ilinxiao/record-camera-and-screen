@@ -96,18 +96,23 @@ class RecordVideo():
             self.logger.info('录制中...')
             # print('cmd:\n%s' % cmd)
             start_time = datetime.now()
-            self.process=subprocess.Popen(cmd, shell=shell, universal_newlines = False, stdin = subprocess.PIPE, stderr = subprocess.STDOUT, stdout = subprocess.PIPE)
+            self.process=subprocess.Popen(cmd, shell=shell, universal_newlines = True, stdin = subprocess.PIPE, stderr = subprocess.STDOUT, stdout = subprocess.PIPE)
             line = ''
             while self.recording:
                 
                 # print(cmd)
+                # print(self.recording)
                 # tmp_out = self.process.stdout.readline()
+                line += str(self.process.stdout.readline())
                 # print('test tmp out:%s' % tmp_out)
-                # line += self.process.stdout.readline()
                 #文字输出编码错误记录
                 #异常：UnicodeDecodeError: 'gbk' codec can't decode byte 0xb4 in position 2881: illegal multibyte sequence
                 #原因：cmd输出包含中文字符
                 #解决方案：universal_newlines = False
+                #缺陷：需要以字节形式的q来控制退出:write(b'q')
+                #最终原因及解决方案：引起gbk编码错误的原因是文件名的中文与数字的连接符号由下划线'_'改成了横杠'-'。
+                #为什么这个修改会引起运行时ffmpeg报编码错误，推测终究还是ffmpeg对中文编码的支持问题。
+                #最终方案即文件名中的中文后的连接符号改回下划线。
                 
                 now = datetime.now()
                 if (now - start_time).total_seconds() >2:
@@ -131,14 +136,14 @@ class RecordVideo():
                         raise CalledProcessError(self.process.returncode, cmd)
                     
                     # self.logger.info(line)
-                    # print(line)
+                    print(line)
                     line = ''
                     start_time = now
                     
                 # print(line)
                 
                 if not self.recording:
-                    self.process.stdin.write(b'q')
+                    self.process.stdin.write('q')
                     print(self.process.communicate())
                     break
         
@@ -150,8 +155,11 @@ class RecordVideo():
             self.exception_exit = True
             print('process is None?:%s' % (self.process is None))
             # self.stop_record()
+        except Exception as x:
+            print('未捕获的异常：')
+            print(x)
         # self.logger.info(self.process.communicate())
-        # print('done.')
+        # print('over')
         
     def record(self, cmd='ffmpeg -h', target = None):
        
@@ -351,7 +359,7 @@ class RecordVideo():
         today_file_dir = os.path.join(self.file_dir, date_dir)
         if not os.path.exists(today_file_dir):
             os.mkdir(today_file_dir)
-        file_name = os.path.join(today_file_dir, '{}-{}{}'.format(video_type_name, time_str, self.file_suffix))
+        file_name = os.path.join(today_file_dir, '{}_{}{}'.format(video_type_name, time_str, self.file_suffix))
         print('recording file name: %s' % file_name)
         return file_name
         

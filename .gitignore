@@ -2,6 +2,7 @@
 *.mkv
 *.mp4
 config.ini
+configByLinxiao.ini
 log.txt
 log_cmd.txt
 think.txt

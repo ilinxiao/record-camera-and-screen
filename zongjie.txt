@@ -11,8 +11,9 @@
     卖家也无办法解决，因为是win10系统兼容性问题。所以客户提出在录制异常中断的情况下，能够自动重新开始录制。这个需求的满足就依赖python对ffmpeg的补充。另外，完全
     控制ffmpeg进程关键在于如何自然退出，ffmpeg在cmd运行按下q键是退出，利用这一点往子进程输入流写入'q'实现了自然退出，保证了数据的正常写入和保存，并且不会引发异常
     情况。如果不得益于这一点，用os.kill(process_id)等方式都很难去控制进程的正常退出。
+    下面是代码结构简化版思维导图：
 .界面和pyqt5：
-    界面相当的简单，主界面是一个按钮+录制时间显示。程序主要的录制状态变化通过托盘图标的来展示。为了尽可能少的让主界面出现在录制内容中，当失去焦点时，窗口就会隐藏。
+    界面相当的简单，主界面是一个按钮+录制时间显示。程序主要的录制状态变化通过托盘图标的来展示。为了尽可能少的让主界面出现在录制内容中，当失去焦点时，窗口就会隐藏，这大概也就是客户能够容忍的原因:)。
     界面实现用的是pyqt5，因为以前自己做过c#的winform和java的swing开发，界面的处理逻辑又大同小异，所以参照着qt的文档这块能够比较顺手的处理。pyqt源自qt,qt的文档非常全
     面，在写pyqt代码时注意一点与c++语法的区别就好了。如果能够更深入的用pyqt开发，有想过写一篇《qt大局观》的总结，就是整理一下图形界面开发的模型以及与qt相比的相同点
     不同点，帮助从其他语言切换到qt或者新学习qt的开发人员在查询文档之前有更清晰的思路。比如都是基于事件驱动，通常有哪些常用或特别的控件？每个或某类控件都有哪些通用的
@@ -36,7 +37,7 @@
     Name: "{userstartup}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: startupicon
     这里[Icons]节点和[Tasks]关联起来的属性就是[Icons]的Tasks: startupicon。其他的[Files][Registry]等节点也可以用同样的方式关联任务。
     一个完整的inno配置文件的逻辑性非常简洁。让我觉得它很强大的另一个原因是inno自带一个叫Pascal的脚本语言，这可就让可定制性直接上升一个台阶。Pascal不仅内置常用的函数，
-    还可以自己写Pascal代码。看过示例脚本过后，也就不难想象为什么现在的下载网站下载下来的安装包有各种各样的广告是怎么实现的了。
+    还可以自己写Pascal代码。看过示例脚本过后，也就不难想象现在的下载网站下载下来的安装包有各种各样的广告是怎么实现的了。
 .不能再忘的git
     版本管理软件对开发人员来说就像一个保险柜一样，重要性不言而喻。以前自己总是零零碎碎的接触到git，始终没有用git真正的来管理一个项目，这次利用这个软件正好好好的学习
     用好git，不能再忘。以下自己按照使用逻辑再手敲一遍常用git（version:2.16.2.windows)管理命令及注释：
@@ -46,25 +47,36 @@
     git reset HEAD <file> 撤销git管理
     git checkout -- <file> 撤销修改(未add之前)
     
-    git rm [-r] <file> 删除git已管理的文件，撤销删除跟撤销修改一样，文件被删除
+    git rm [-r] <file> 删除git已管理的文件，文件被删除
     git rm [-r] --cached <file> 撤销git已管理的文件，文件仍存在
+    撤销删除跟撤销修改一样.
     
     git commit -m '注释' 提交修改并备注修改缘由
     git log 提交记录
     git reflog 命令历史记录
-    git reset --hard HEAD^^/HEAD~2/commit_id 回退到上上个版本
+    git reset --hard HEAD^^/HEAD~2/commit_id 回退到上上个版本或者回到指定commit_id版本
     
-    git push origin master 将本地的修改推送到远程仓库origin下的master分支
     git pull origin master  与远程仓库origin下的master分支同步 
+    git push origin master 将本地的修改推送到远程仓库origin下的master分支
     
     git remote -v 查看远程仓库信息
     git branch 查看全部分支
     git branch <branch_name> 创建分支
     git checkout <branch_name> 切换到分支
     git checkout -b <branch_name> 创建分支并切换到该分支
+    git branch -d/-D <branch_name> 删除分支
     
+    git merge [--no-ff保留分支信息] <branch_name> 合并分支
     
-.configparser
-
+    git stash [list] [apply恢复] [drop删除] [pop恢复并删除] 将修改临时保存
+    暂时熟练的就这些，以后再更新。
+    另，软件代码发布在https://github.com/ilinxiao/record-camera-and-screen。
+    创建了两个分支gutin和dev。gutin是给客户的版本，dev是自己想在这个软件上进一步的完善。
+    
+.交付效果：
+    软件为了客户方便使用，提供了必要的参数设置。实现时用到了configparser。软件在分辨率为1024x768、帧率30/s、h264编码、i5 cpu threads=4的情况下录制，
+    cpu占有率保持在30%~40%之间（这是ffmpeg的功劳）。本软件开发分两次提出两个阶段，客户第一阶段的需求主要是录制，第二阶段是调整和增加附加功能。两次合作及时
+    完成了客户的需求，都得到了用户满意的反馈。
+    
 .改进：完善快捷键、添加支付接口、录制状态切换音效和添加动画【学习pyqt的绘制】、视频输出优化：添加水印和标签等、界面美化：用圆形框取代方形按钮
 其他：cpu占用率 、文档归类、简化总结发布到知乎、客户满意度

@@ -1,0 +1,5 @@
+PyQt5
+psutil
+pyhook3
+pywin32
+cchardet

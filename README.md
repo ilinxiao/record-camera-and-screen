@@ -18,10 +18,11 @@ python recordwindow.py
 ```
 ### 3.设置
 参考设置如下：
-摄像头名称：USB2.0 HD UVC WebCam
-声音输入设备：麦克风 (Realtek High Definition Audio)
-屏幕录制设备：screen-capture-recorder
-系统声音设备：virtual-audio-capturer
+* 摄像头名称：USB2.0 HD UVC WebCam
+* 声音输入设备：麦克风 (Realtek High Definition Audio)
+* 屏幕录制设备：screen-capture-recorder
+* 系统声音设备：virtual-audio-capturer
+
 不同机器和设备名称有所不同。
 ### 4.编译
 ```

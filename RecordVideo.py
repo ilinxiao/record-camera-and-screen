@@ -220,7 +220,8 @@ class RecordVideo():
             self.deal_with_device_name(self.screen_name),
             self.deal_with_device_name(self.system_voice_device_name),
             self.video_codec,
-            '1024x768', #屏幕录制分辨率固定
+            # '1024x768', #屏幕录制分辨率固定
+            self.resolution,
             self.brate,
             self.threads,
             self.get_file_name()

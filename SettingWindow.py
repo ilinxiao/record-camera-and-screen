@@ -187,6 +187,10 @@ class SettingWindow(QDialog):
         self.threads_spinBox.setSizePolicy(sizePolicy)
         self.threads_spinBox.setObjectName("record.threads")
         self.gridLayout.addWidget(self.threads_spinBox, 5, 1, 1, 1)
+        self.ckb_adaptive_screen_resolution = QtWidgets.QCheckBox(self.gridLayoutWidget)
+        self.ckb_adaptive_screen_resolution.setObjectName("ckb_adaptive_screen_resolution")
+        self.ckb_adaptive_screen_resolution.setStyleSheet("padding-left:10")
+        self.gridLayout.addWidget(self.ckb_adaptive_screen_resolution, 0, 2, 1, 1)
         self.tabWidget.addTab(self.tab_record, "")
         
         self.save_button = QtWidgets.QPushButton(self)
@@ -218,6 +222,7 @@ class SettingWindow(QDialog):
         self.label_12.setText(_translate("Form", "分辨率："))
         self.btn_file_dir.setText(_translate("Form", "选择文件目录"))
         self.threads_label.setText(_translate("Form", "CPU线程："))
+        self.ckb_adaptive_screen_resolution.setText(_translate("Form", "屏幕录制自适应"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_record), _translate("Form", "录制参数"))
         self.save_button.setText(_translate("Form", "保存"))
         self.cancel_button.setText(_translate("Form", "取消"))
@@ -273,12 +278,13 @@ class SettingWindow(QDialog):
         record_file_dir = self.rc.config.get('record','file_dir')
         record_file_dir = os.path.abspath(record_file_dir)
         record_threads = int(self.rc.config.get('record','threads'))
+        record_adaptive_resolution = self.rc.config.getboolean('record', 'adaptive_screen_resolution')
         
         self.cb_resolution.setCurrentIndex(self.cb_resolution.findData(record_resolution))
+        self.ckb_adaptive_screen_resolution.setChecked(record_adaptive_resolution)
         self.cb_vcodec.setCurrentIndex(self.cb_vcodec.findData(record_vcodec))
         self.dsb_frame_rate.setValue(record_frame_rate)
         self.le_file_path.setText(record_file_dir)
-        
         self.threads_spinBox.setValue(record_threads)
      
     def load(self):
@@ -341,7 +347,7 @@ class SettingWindow(QDialog):
         self.dsb_frame_rate.valueChanged.connect(self.stateChangedEvent)
         self.le_file_path.textChanged.connect(self.stateChangedEvent)
         self.threads_spinBox.valueChanged.connect(self.stateChangedEvent)
-            
+        self.ckb_adaptive_screen_resolution.stateChanged.connect(self.stateChangedEvent)    
         # self.le_start_record_camera_shortcut.keyPressEvent = self.record_keypress
         # print(dir(self.le_start_record_camera_shortcut.keyPressEvent))
         
@@ -410,6 +416,7 @@ class SettingWindow(QDialog):
         
         #录制
         resolution = self.cb_resolution.currentData()
+        adaptive_screen_resolution = str(self.ckb_adaptive_screen_resolution.isChecked())
         video_codec = self.cb_vcodec.currentData()
         frame_rate = self.dsb_frame_rate.value()
         file_dir = self.le_file_path.text()
@@ -432,6 +439,7 @@ class SettingWindow(QDialog):
         
         record_section_name = 'record'
         conf.set(record_section_name,'resolution', resolution)
+        conf.set(record_section_name,'adaptive_screen_resolution', adaptive_screen_resolution)
         conf.set(record_section_name,'vcodec', video_codec)
         conf.set(record_section_name,'frame_rate', str(frame_rate))
         conf.set(record_section_name,'file_dir', file_dir)
@@ -474,48 +482,9 @@ class SettingWindow(QDialog):
         else:
             pass
             print('not found this section or name.')
-        
-    # def indexChangedEvent(self, index, obj):
-        
-        # print('in data changed event.')
-        # print(index)
-        # print('event obj:%s' % type(obj))
-        # print('obj name:%s' % obj.objectName())
-        
-        # value = obj.currentData()
-        # obj_name = obj.objectName()
-        # self.setting(obj_name, value)
+
     def stateChangedEvent(self, new_value):
         print('changed value is :%s' % new_value)
         self.changed = True
         self.update_state()
-        
-    # def textChangedEvent(self, obj):
-    
-        # print('type of self:%s' % type(self))
-        # print('type of text:%s' % type(text))
-        # print('type of obj:%s' % type(obj))
-        # value = obj.text()
-        # obj_name = obj.objectName()
-        # self.setting(obj_name, value)
-        
-    # def valueChangedEvent(self, new_value):
-        # print('changed  value is :%s.' % new_value)
-        
-        # self.changed = True
-        # self.update_state()
-        # obj = self.dsb_frame_rate
-        # value = obj.value()
-        # print('value:%1.f' % value)
-        # obj_name = obj.objectName()
-        # self.setting(obj_name, str(value))
-        
-    # def valueChangedEvent_spinBox(self):
-        # print('in value changed event.')
-        # obj = self.threads_spinBox
-        # value = obj.value()
-        # print('value:%1.f' % value)
-        # obj_name = obj.objectName()
-        # self.setting(obj_name, str(value))
-        
 

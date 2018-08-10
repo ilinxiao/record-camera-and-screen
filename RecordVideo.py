@@ -72,6 +72,8 @@ class RecordVideo():
         self.video_codec=rc.config.get('record','vcodec')
         #分辨率
         self.resolution=rc.config.get('record','resolution')
+        #是否自适应屏幕录制分辨率
+        self.adaptive_screen_resolution = rc.config.getboolean('record', 'adaptive_screen_resolution')
         #帧率
         self.brate=rc.config.getfloat('record','frame_rate')
         #文件目录
@@ -213,15 +215,17 @@ class RecordVideo():
             # print(record_cmd)
             self.record(record_cmd, self.start_ffmpeg)
         
-    def record_screen(self):
+    def record_screen(self, resolution='1024x768'):
         if self.screen_name and self.system_voice_device_name:
             self.record_type=RecordType.Screen
+            if self.adaptive_screen_resolution is not True:
+                resolution = self.resolution
             record_cmd='ffmpeg -f dshow -i video="{}":audio="{}" -acodec libmp3lame -vcodec {} -preset:v ultrafast -tune:v zerolatency -s {} -r {} -threads {} -y {}'.format(
             self.deal_with_device_name(self.screen_name),
             self.deal_with_device_name(self.system_voice_device_name),
             self.video_codec,
             # '1024x768', #屏幕录制分辨率固定
-            self.resolution,
+            resolution,
             self.brate,
             self.threads,
             self.get_file_name()

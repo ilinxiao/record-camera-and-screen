@@ -38,6 +38,7 @@ class RecordConfig():
         record_section_name = 'record'
         conf.add_section(record_section_name)
         conf.set(record_section_name,'resolution','1920x1080')
+        conf.set(record_section_name,'adaptive_screen_resolution','1')
         conf.set(record_section_name,'vcodec','libx264')
         conf.set(record_section_name,'frame_rate','7.0')
         conf.set(record_section_name,'file_dir','.')

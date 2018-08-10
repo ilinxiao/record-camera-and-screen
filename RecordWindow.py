@@ -19,12 +19,13 @@ from RecordHelp import *
 
 class RecordWindow(QtWidgets.QWidget):
 
-    def __init__(self, parent = None):
+    def __init__(self, parent = None, screen_resolution=None):
         super(RecordWindow,self).__init__(parent) 
         self.setupUi()
         self.load_modules()
         #更新设置
         self.need_update_config = False
+        self.screen_resolution = screen_resolution
         # self.need_hide = True
         #初始化状态
         print('初始化状态...')
@@ -38,7 +39,6 @@ class RecordWindow(QtWidgets.QWidget):
         #托盘图标
         self.rti = RecordTrayIcon(self)
         self.rti.update_state(self.recording, self.record_type)
-        
         
         self.sc = Shortcut()
         
@@ -320,7 +320,7 @@ class RecordWindow(QtWidgets.QWidget):
                 self.rv.record_camera()
             elif rtype == RecordType.Screen:
                 print('开始录制屏幕...')
-                self.rv.record_screen()
+                self.rv.record_screen(resolution=self.screen_resolution)
             
             self.start_timer()
             self.update_state()
@@ -491,7 +491,9 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     #当这个属性为True，应用程序会在最后一个可见窗口关闭时退出。
     app.setQuitOnLastWindowClosed(False)
-    rw = RecordWindow()    
+    screen = app.desktop().screenGeometry()
+    resolution = '{}x{}'.format(screen.width(), screen.height())
+    rw = RecordWindow(screen_resolution=resolution)    
     rw.monitor_shortcut()
     rw.rti.show()
     rw.show()

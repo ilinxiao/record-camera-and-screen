@@ -2,7 +2,7 @@
 ; 有关创建 Inno Setup 脚本文件的详细资料请查阅帮助文档！
 
 #define MyAppName "Gutin谷田会议视频录播管理系统"
-#define MyAppVersion "0.4.2"
+#define MyAppVersion "0.4.3"
 #define MyAppPublisher "珠海市谷田音频科技有限公司"
 #define MyAppExeName "RecordWindow.exe"
 

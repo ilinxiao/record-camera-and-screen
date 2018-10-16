@@ -295,6 +295,8 @@ class SettingWindow(QDialog):
         '''
         #设备
         di = DevicesInfo()
+        #gdigrab
+        di.video_devices.append(['GDI Grab', 'gdigrab'])
         self.load_combobox_data(self.cb_camera_devices, di.video_devices)
         self.load_combobox_data(self.cb_screen_devices, di.video_devices)
         self.load_combobox_data(self.cb_voice_devices, di.voice_devices)

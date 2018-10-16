@@ -214,15 +214,23 @@ class RecordVideo():
             )
             # print(record_cmd)
             self.record(record_cmd, self.start_ffmpeg)
-        
+    
+    def get_screen_device(self):
+        pass
+    
     def record_screen(self, resolution='1024x768'):
         if self.screen_name and self.system_voice_device_name:
             self.record_type=RecordType.Screen
             if self.adaptive_screen_resolution is not True:
                 resolution = self.resolution
-            record_cmd='ffmpeg -f dshow -i video="{}":audio="{}" -acodec libmp3lame -vcodec {} -preset:v ultrafast -tune:v zerolatency -s {} -r {} -threads {} -y {}'.format(
-            self.deal_with_device_name(self.screen_name),
-            self.deal_with_device_name(self.system_voice_device_name),
+            device_cmd_str = ''
+            if self.screen_name.lower().find('gdigrab') >=0:
+                #使用gdigrab录制屏幕
+                device_cmd_str = '-f dshow -i audio="{}" -f gdigrab -i desktop'.format(self.system_voice_device_name)
+            else:
+                device_cmd_str = '-f dshow -i video="{}":audio="{}"'.format(self.screen_name, self.system_voice_device_name)
+            record_cmd='ffmpeg {} -acodec libmp3lame -vcodec {} -preset:v ultrafast -tune:v zerolatency -s {} -r {} -threads {} -y {}'.format(
+            device_cmd_str,
             self.video_codec,
             # '1024x768', #屏幕录制分辨率固定
             resolution,
